@@ -4,9 +4,17 @@ namespace: tolo
 resources:
   - tolo.namespace.yaml
   - ../../base
+  - firebase-emulator.deployment.yaml
+  - firebase-emulator.service.yaml
+patches:
+  - path: edge-bridge.patch.yaml
+  - path: web.patch.yaml
 secretGenerator:
   - name: tolo
     envs:
       - secrets.env
     files:
       - signing-key.pem
+images:
+  - name: ghcr.io/pj-hoakari/tolo-firebase-emulator
+    newTag: sha-e5a530c

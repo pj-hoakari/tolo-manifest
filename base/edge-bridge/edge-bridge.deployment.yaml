@@ -24,12 +24,6 @@ spec:
           env:
             - name: SERVER_ADDR
               value: :8787
-            - name: FIRESTORE_PROJECT_ID
-              value: demo-tolo
-            - name: FIRESTORE_EMULATOR_HOST
-              value: firebase-emulator:8080
-            - name: FIREBASE_AUTH_EMULATOR_HOST
-              value: firebase-emulator:9099
             - name: IDP_ISSUER
               value: http://fakeidp:8080
             - name: IDP_AUDIENCE

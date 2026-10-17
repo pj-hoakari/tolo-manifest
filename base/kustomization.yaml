@@ -29,8 +29,6 @@ resources:
   - flow-control/flow-control.service.yaml
   - edge-bridge/edge-bridge.deployment.yaml
   - edge-bridge/edge-bridge.service.yaml
-  - edge-bridge/firebase-emulator.deployment.yaml
-  - edge-bridge/firebase-emulator.service.yaml
   - web/web.deployment.yaml
   - web/web.service.yaml
 configMapGenerator:
@@ -64,8 +62,6 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-flow-control
     newTag: sha-17cd12a
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
-    newTag: sha-e5a530c
-  - name: ghcr.io/pj-hoakari/tolo-firebase-emulator
     newTag: sha-e5a530c
   - name: ghcr.io/pj-hoakari/tolo-web
     newTag: sha-2cda547

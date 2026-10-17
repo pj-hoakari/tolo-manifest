@@ -2,6 +2,7 @@
 
 TOLO の全サービスを Kubernetes で動かすための Kustomize の base を置く  
 構成は [tolo](https://github.com/pj-hoakari/tolo) の compose（`task up` で起動する組み合わせと fake IdP）に合わせている  
+Firebase のエミュレータは base に含めない。どの Firebase プロジェクトにつなぐかは overlay で決める  
 クラスタごとの事情（namespace、公開経路、StorageClass、NetworkPolicy、Secret の実体）は base に含めず、取り込む側の overlay で足す
 
 ## 構成
@@ -30,10 +31,14 @@ overlay は次のキーを持つ `tolo` を用意する
 
 DB のパスワードは `DATABASE_URL` にそのまま埋め込まれるので、URL で使える文字（16 進数など）だけで作る
 
-次の値はブラウザから見たホストを指すので、公開する環境では overlay で書き換える
+base は Firebase の接続先を設定しないので、overlay が edge-bridge と web の env に足す  
+edge-bridge は `FIRESTORE_PROJECT_ID` がないと起動しない  
+`overlays/local` はエミュレータを置き、その接続先を patch で足している
 
-- web の `NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST` と `NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST`
-- observation の `OBSERVATION_PAGE_URL_TEMPLATE`
+observation の `OBSERVATION_PAGE_URL_TEMPLATE` はブラウザから見たホストを指すので、公開する環境では overlay で書き換える
+
+fakeidp は、要求されたとおりの利用者と権限でトークンを発行する  
+base はアクセスの制御を持たないので、公開する環境では overlay の側で入口を絞る
 
 Postgres の PVC は `storageClassName` を指定しないので、クラスタの既定の StorageClass が使われる
 

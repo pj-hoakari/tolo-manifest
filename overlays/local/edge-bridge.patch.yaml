@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-bridge
+spec:
+  template:
+    spec:
+      containers:
+        - name: edge-bridge
+          env:
+            - name: FIRESTORE_PROJECT_ID
+              value: demo-tolo
+            - name: FIRESTORE_EMULATOR_HOST
+              value: firebase-emulator:8080
+            - name: FIREBASE_AUTH_EMULATOR_HOST
+              value: firebase-emulator:9099
