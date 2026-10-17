@@ -47,7 +47,8 @@ Postgres の PVC は `storageClassName` を指定しないので、クラスタ�
 ## イメージ
 
 イメージ名は `ghcr.io/pj-hoakari/<compose のイメージ名>:sha-<コミットの先頭 7 桁>` とする  
-各サービスのイメージはまだ ghcr に公開されていないので、現状はローカルでビルドしたイメージでしか動かない
+ghcr に公開されているのは web のイメージだけで、tolo-web のリリースのたびに公開される  
+ほかのサービスのイメージはまだ公開されていないので、現状はローカルでビルドしたイメージでしか動かない
 
 ## ローカルで確かめる
 
@@ -55,12 +56,12 @@ Postgres の PVC は `storageClassName` を指定しないので、クラスタ�
 
 ```bash
 mise install
-NPM_TOKEN=$(gh auth token) task local:images TOLO_DIR=<tolo の checkout>
+task local:images TOLO_DIR=<tolo の checkout>
 task local:check-images
 task local:up
 ```
 
-`task local:images` は tolo の compose でイメージをビルドし、base が使う名前のタグを付ける  
+`task local:images` は tolo の compose でイメージをビルドし、base が使う名前のタグを付ける。web は、公開されたイメージを ghcr から取得する  
 `task local:up` は Secret の材料を `overlays/local/` に一度だけ生成し、現在の kubectl の context に適用する
 
 tolo の e2e スクリプトは、Service を port-forward すれば同じように使える
