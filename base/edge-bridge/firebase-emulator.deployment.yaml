@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebase-emulator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: firebase-emulator
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: firebase-emulator
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: firebase-emulator
+          image: ghcr.io/pj-hoakari/tolo-firebase-emulator
+          ports:
+            - name: firestore
+              containerPort: 8080
+            - name: auth
+              containerPort: 9099
+            - name: ui
+              containerPort: 4000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: firestore
+          securityContext:
+            allowPrivilegeEscalation: false

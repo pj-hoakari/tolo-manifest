@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fakeidp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: fakeidp
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: fakeidp
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        fsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: fakeidp
+          image: ghcr.io/pj-hoakari/tolo-fakeidp
+          env:
+            - name: SERVER_ADDR
+              value: :8080
+            - name: FAKE_IDP_ISSUER
+              value: http://fakeidp:8080
+            - name: FAKE_IDP_AUDIENCE
+              value: backend-api
+            - name: FAKE_IDP_INTROSPECTION_CLIENT_ID
+              value: gateway-introspection
+            - name: FAKE_IDP_INTROSPECTION_CLIENT_SECRET_FILE
+              value: /etc/tolo/idp/introspection-client-secret
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            tcpSocket:
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: idp-introspection
+              mountPath: /etc/tolo/idp
+              readOnly: true
+      volumes:
+        - name: idp-introspection
+          secret:
+            secretName: tolo
+            defaultMode: 0440
+            items:
+              - key: introspection-client-secret
+                path: introspection-client-secret

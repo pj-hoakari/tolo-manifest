@@ -1,0 +1,5 @@
+[tools]
+kubectl = "latest"
+kustomize = "5.8.1"
+task = "3.54.0"
+yq = "latest"

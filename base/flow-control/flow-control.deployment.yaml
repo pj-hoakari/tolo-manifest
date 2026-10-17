@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flow-control
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: flow-control
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: flow-control
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: flow-control
+          image: ghcr.io/pj-hoakari/tolo-flow-control
+          env:
+            - name: PORT
+              value: "8080"
+            - name: TOLO_RPC_MAX_REQUEST_BYTES
+              value: "8388608"
+            - name: TOLO_RPC_MAX_EXECUTION_SEC
+              value: "720"
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            tcpSocket:
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}

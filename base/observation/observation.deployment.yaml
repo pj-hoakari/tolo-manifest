@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: observation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: observation
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: observation
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+        - name: migrate
+          image: ghcr.io/pj-hoakari/tolo-observation-migrate
+          args: ["-database", "$(DATABASE_URL)", "up"]
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: observation-db-password
+            - name: DATABASE_URL
+              value: postgres://observation-db:5432/observation?sslmode=disable&user=observation&password=$(DB_PASSWORD)
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+      containers:
+        - name: observation
+          image: ghcr.io/pj-hoakari/tolo-observation
+          env:
+            - name: SERVER_ADDR
+              value: :8080
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: observation-db-password
+            - name: DATABASE_URL
+              value: postgres://observation-db:5432/observation?sslmode=disable&user=observation&password=$(DB_PASSWORD)
+            - name: INTERNAL_JWKS_URL
+              value: http://service-gateway:8080/.well-known/jwks.json
+            - name: INTERNAL_JWT_ISSUER
+              value: service-gateway
+            - name: INTERNAL_JWT_AUDIENCE
+              value: tolo-observation
+            - name: OBSERVATION_PAGE_URL_TEMPLATE
+              value: http://{tenant_id}.localhost:3000/event/{event_id}/observation/{edge_device_id}
+            - name: GRAPH_AUTHORING_URL
+              value: http://service-gateway:8090
+            - name: FLOW_CONTROL_URL
+              value: http://flow-control:8080
+            - name: OPERATION_URL
+              value: http://service-gateway:8090
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]

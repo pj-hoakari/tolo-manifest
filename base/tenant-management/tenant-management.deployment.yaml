@@ -1,0 +1,103 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tenant-management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tenant-management
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tenant-management
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+        - name: migrate
+          image: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
+          args: ["-database", "$(DATABASE_URL)", "up"]
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: tenant-management-db-password
+            - name: DATABASE_URL
+              value: postgres://tenant-management-db:5432/tenant_management?sslmode=disable&user=tenant_management&password=$(DB_PASSWORD)
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+        - name: seed
+          image: postgres
+          args:
+            - psql
+            - --set=ON_ERROR_STOP=1
+            - --set=tenant_id=0123456789abcdef
+            - --set=event_id=fedcba9876543210
+            - --set=owner_sub=user-owner
+            - --file=/seed/tenant-management.sql
+            - $(DATABASE_URL)
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: tenant-management-db-password
+            - name: DATABASE_URL
+              value: postgres://tenant-management-db:5432/tenant_management?sslmode=disable&user=tenant_management&password=$(DB_PASSWORD)
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: seed
+              mountPath: /seed
+              readOnly: true
+      containers:
+        - name: tenant-management
+          image: ghcr.io/pj-hoakari/tolo-tenant-management
+          env:
+            - name: SERVER_ADDR
+              value: :8080
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: tenant-management-db-password
+            - name: DATABASE_URL
+              value: postgres://tenant-management-db:5432/tenant_management?sslmode=disable&user=tenant_management&password=$(DB_PASSWORD)
+            - name: INTERNAL_JWKS_URL
+              value: http://service-gateway:8080/.well-known/jwks.json
+            - name: INTERNAL_JWT_ISSUER
+              value: service-gateway
+            - name: INTERNAL_JWT_AUDIENCE
+              value: tolo-tenant-management
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+      volumes:
+        - name: seed
+          configMap:
+            name: tenant-management-seed

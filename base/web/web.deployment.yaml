@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: web
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: web
+          image: ghcr.io/pj-hoakari/tolo-web
+          env:
+            - name: NEXT_TELEMETRY_DISABLED
+              value: "1"
+            - name: NEXT_PUBLIC_API_MOCKING
+              value: disabled
+            - name: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+              value: demo-tolo
+            - name: NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST
+              value: 127.0.0.1:8081
+            - name: NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST
+              value: 127.0.0.1:9099
+            - name: GATEWAY_URL
+              value: http://service-gateway:8080
+            - name: SIGNALING_URL
+              value: http://edge-bridge:8787
+            - name: OBSERVATION_API_MOCKING
+              value: disabled
+            - name: GRAPH_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: graph-access-token
+                  optional: true
+            - name: OBSERVATION_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: observation-access-token
+                  optional: true
+            - name: TENANT_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: tenant-access-token
+                  optional: true
+          ports:
+            - name: http
+              containerPort: 3000
+          readinessProbe:
+            tcpSocket:
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false

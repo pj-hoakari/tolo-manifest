@@ -1,0 +1,74 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: tolo
+    includeSelectors: false
+resources:
+  - service-gateway/service-gateway.deployment.yaml
+  - service-gateway/service-gateway.service.yaml
+  - fakeidp/fakeidp.deployment.yaml
+  - fakeidp/fakeidp.service.yaml
+  - tenant-management/tenant-management.deployment.yaml
+  - tenant-management/tenant-management.service.yaml
+  - tenant-management/tenant-management-db.statefulset.yaml
+  - tenant-management/tenant-management-db.service.yaml
+  - graph-authoring/graph-authoring.deployment.yaml
+  - graph-authoring/graph-authoring.service.yaml
+  - graph-authoring/graph-authoring-db.statefulset.yaml
+  - graph-authoring/graph-authoring-db.service.yaml
+  - observation/observation.deployment.yaml
+  - observation/observation.service.yaml
+  - observation/observation-db.statefulset.yaml
+  - observation/observation-db.service.yaml
+  - operation/operation.deployment.yaml
+  - operation/operation.service.yaml
+  - operation/operation-db.statefulset.yaml
+  - operation/operation-db.service.yaml
+  - flow-control/flow-control.deployment.yaml
+  - flow-control/flow-control.service.yaml
+  - edge-bridge/edge-bridge.deployment.yaml
+  - edge-bridge/edge-bridge.service.yaml
+  - edge-bridge/firebase-emulator.deployment.yaml
+  - edge-bridge/firebase-emulator.service.yaml
+  - web/web.deployment.yaml
+  - web/web.service.yaml
+configMapGenerator:
+  - name: service-gateway-destinations
+    files:
+      - service-gateway/destinations.json
+  - name: tenant-management-seed
+    files:
+      - tenant-management/tenant-management.sql
+images:
+  - name: ghcr.io/pj-hoakari/tolo-service-gateway
+    newTag: sha-0000183
+  - name: ghcr.io/pj-hoakari/tolo-fakeidp
+    newTag: sha-0000183
+  - name: ghcr.io/pj-hoakari/tolo-tenant-management
+    newTag: sha-fbfa436
+  - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
+    newTag: sha-fbfa436
+  - name: ghcr.io/pj-hoakari/tolo-graph-authoring
+    newTag: sha-d9cfbfe
+  - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
+    newTag: sha-d9cfbfe
+  - name: ghcr.io/pj-hoakari/tolo-observation
+    newTag: sha-60f9280
+  - name: ghcr.io/pj-hoakari/tolo-observation-migrate
+    newTag: sha-60f9280
+  - name: ghcr.io/pj-hoakari/tolo-operation
+    newTag: sha-5bd4c59
+  - name: ghcr.io/pj-hoakari/tolo-operation-migrate
+    newTag: sha-5bd4c59
+  - name: ghcr.io/pj-hoakari/tolo-flow-control
+    newTag: sha-17cd12a
+  - name: ghcr.io/pj-hoakari/tolo-edge-bridge
+    newTag: sha-e5a530c
+  - name: ghcr.io/pj-hoakari/tolo-firebase-emulator
+    newTag: sha-e5a530c
+  - name: ghcr.io/pj-hoakari/tolo-web
+    newTag: sha-2cda547
+  - name: postgres
+    newTag: 18-alpine
+    digest: sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873

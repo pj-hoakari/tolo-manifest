@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: edge-bridge
+  labels:
+    app.kubernetes.io/name: edge-bridge
+spec:
+  selector:
+    app.kubernetes.io/name: edge-bridge
+  ports:
+    - name: http
+      port: 8787
+      targetPort: http

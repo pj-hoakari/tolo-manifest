@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fakeidp
+  labels:
+    app.kubernetes.io/name: fakeidp
+spec:
+  selector:
+    app.kubernetes.io/name: fakeidp
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http

@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-bridge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: edge-bridge
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: edge-bridge
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: edge-bridge
+          image: ghcr.io/pj-hoakari/tolo-edge-bridge
+          env:
+            - name: SERVER_ADDR
+              value: :8787
+            - name: FIRESTORE_PROJECT_ID
+              value: demo-tolo
+            - name: FIRESTORE_EMULATOR_HOST
+              value: firebase-emulator:8080
+            - name: FIREBASE_AUTH_EMULATOR_HOST
+              value: firebase-emulator:9099
+            - name: IDP_ISSUER
+              value: http://fakeidp:8080
+            - name: IDP_AUDIENCE
+              value: backend-api
+            - name: IDP_JWKS_URL
+              value: http://fakeidp:8080/oauth2/jwks
+            - name: CONSOLE_CLIENT_ID
+              value: console-ui
+            - name: EDGE_CLIENT_ID
+              value: edge-page
+          ports:
+            - name: http
+              containerPort: 8787
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
