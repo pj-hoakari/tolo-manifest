@@ -11,7 +11,7 @@ Firebase のエミュレータは base に含めない。どの Firebase プロ�
 - `base/kustomization.yaml`: イメージのタグを `images` で固定する
 - `overlays/local/`: ローカルのクラスタで base を確かめるための overlay
 
-compose のサービス名 `server` は、Service 名 `service-gateway` に置き換えている  
+compose のサービス名 `server` は Service 名 `service-gateway` に置き換えている  
 それ以外のサービスは compose と同じ名前で互いを参照する
 
 ## overlay が用意するもの
@@ -37,7 +37,7 @@ edge-bridge は `FIRESTORE_PROJECT_ID` がないと起動しない
 
 observation の `OBSERVATION_PAGE_URL_TEMPLATE` はブラウザから見たホストを指すので、公開する環境では overlay で書き換える
 
-fakeidp は、要求されたとおりの利用者と権限でトークンを発行する  
+fakeidp は要求されたとおりの利用者と権限でトークンを発行する  
 base はアクセスの制御を持たないので、公開する環境では overlay の側で入口を絞る
 
 web は人数検出のモデルを `/app/public/models` から配信する。base はそこに空の `models` ボリュームを置くので、overlay がモデルを入れたボリュームに差し替える。web はこのディレクトリを起動時に読むので、モデルを入れ替えたら Pod を作り直す
@@ -47,7 +47,7 @@ Postgres の PVC は `storageClassName` を指定しないので、クラスタ�
 ## イメージ
 
 イメージ名は `ghcr.io/pj-hoakari/<compose のイメージ名>:sha-<コミットの先頭 7 桁>` とする  
-base のイメージは、各リポジトリのリリースのときに ghcr へ公開される。fakeidp は tolo-service-gateway の `Publish fakeidp Image` ワークフローを手動で実行して公開する
+base のイメージは各リポジトリのリリースのときに ghcr へ公開される。fakeidp だけは tolo-service-gateway の `Publish fakeidp Image` ワークフローを手動で実行して公開する
 
 ## ローカルで確かめる
 
@@ -60,10 +60,10 @@ task local:check-images
 task local:up
 ```
 
-`task local:images` は base のイメージを ghcr から取得する。local overlay だけで使う Firebase emulator のイメージは公開していないので、tolo の compose でビルドして base と同じ形の名前のタグを付ける  
+`task local:images` は base のイメージを ghcr から取得する。`overlays/local` だけで使う Firebase のエミュレータのイメージは公開していないので、tolo の compose でビルドし、overlay が参照する名前のタグを付ける  
 `task local:up` は Secret の材料を `overlays/local/` に一度だけ生成し、現在の kubectl の context に適用する
 
-tolo の e2e スクリプトは、Service を port-forward すれば同じように使える
+tolo の e2e スクリプトは Service を port-forward すれば同じように使える
 
 ```bash
 kubectl -n tolo port-forward svc/service-gateway 8080:8080 &
