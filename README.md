@@ -27,7 +27,6 @@ overlay は次のキーを持つ `tolo` を用意する
 | `graph-authoring-db-password` | graph-authoring、graph-authoring-db |
 | `observation-db-password` | observation、observation-db |
 | `operation-db-password` | operation、operation-db |
-| `tenant-access-token`、`graph-access-token`、`observation-access-token` | web（任意） |
 
 DB のパスワードは `DATABASE_URL` にそのまま埋め込まれるので、URL で使える文字（16 進数など）だけで作る
 
@@ -39,6 +38,9 @@ observation の `OBSERVATION_PAGE_URL_TEMPLATE` はブラウザから見たホ�
 
 fakeidp は要求されたとおりの利用者と権限でトークンを発行する  
 base はアクセスの制御を持たないので、公開する環境では overlay の側で入口を絞る
+
+web は起動時に fakeidp から、固定のテナントとイベント（tenant-management の seed と同じ値）のトークンを発行して gateway に付ける。トークンの有効期限は 30 日とする  
+fakeidp は起動のたびに署名鍵を作り直すので、fakeidp を作り直したときとトークンの期限が切れたときは web も作り直す
 
 web は人数検出のモデルを `/app/public/models` から配信する。base はそこに空の `models` ボリュームを置くので、overlay がモデルを入れたボリュームに差し替える。web はこのディレクトリを起動時に読むので、モデルを入れ替えたら Pod を作り直す
 

@@ -21,6 +21,7 @@ spec:
       containers:
         - name: web
           image: ghcr.io/pj-hoakari/tolo-web
+          command: ["node", "/etc/tolo/web/start-web.mjs"]
           env:
             - name: GATEWAY_URL
               value: http://service-gateway:8080
@@ -28,24 +29,16 @@ spec:
               value: http://edge-bridge:8787
             - name: OBSERVATION_API_MOCKING
               value: disabled
-            - name: GRAPH_ACCESS_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: tolo
-                  key: graph-access-token
-                  optional: true
-            - name: OBSERVATION_ACCESS_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: tolo
-                  key: observation-access-token
-                  optional: true
-            - name: TENANT_ACCESS_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: tolo
-                  key: tenant-access-token
-                  optional: true
+            - name: FAKEIDP_URL
+              value: http://fakeidp:8080
+            - name: TOLO_TENANT_ID
+              value: 0123456789abcdef
+            - name: TOLO_EVENT_ID
+              value: fedcba9876543210
+            - name: TOLO_OWNER_SUB
+              value: user-owner
+            - name: TOLO_TOKEN_TTL_SECONDS
+              value: "2592000"
           ports:
             - name: http
               containerPort: 3000
@@ -58,9 +51,15 @@ spec:
             capabilities:
               drop: ["ALL"]
           volumeMounts:
+            - name: start
+              mountPath: /etc/tolo/web
+              readOnly: true
             - name: models
               mountPath: /app/public/models
               readOnly: true
       volumes:
+        - name: start
+          configMap:
+            name: web-start
         - name: models
           emptyDir: {}

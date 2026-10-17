@@ -38,6 +38,9 @@ configMapGenerator:
   - name: tenant-management-seed
     files:
       - tenant-management/tenant-management.sql
+  - name: web-start
+    files:
+      - web/start-web.mjs
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
     newTag: sha-e0cf0ee
