@@ -47,8 +47,7 @@ Postgres の PVC は `storageClassName` を指定しないので、クラスタ�
 ## イメージ
 
 イメージ名は `ghcr.io/pj-hoakari/<compose のイメージ名>:sha-<コミットの先頭 7 桁>` とする  
-ghcr に公開されているのは web のイメージだけで、tolo-web のリリースのたびに公開される  
-ほかのサービスのイメージはまだ公開されていないので、現状はローカルでビルドしたイメージでしか動かない
+base のイメージは、各リポジトリのリリースのときに ghcr へ公開される。fakeidp は tolo-service-gateway の `Publish fakeidp Image` ワークフローを手動で実行して公開する
 
 ## ローカルで確かめる
 
@@ -61,7 +60,7 @@ task local:check-images
 task local:up
 ```
 
-`task local:images` は tolo の compose でイメージをビルドし、base が使う名前のタグを付ける。web は、公開されたイメージを ghcr から取得する  
+`task local:images` は base のイメージを ghcr から取得する。local overlay だけで使う Firebase emulator のイメージは公開していないので、tolo の compose でビルドして base と同じ形の名前のタグを付ける  
 `task local:up` は Secret の材料を `overlays/local/` に一度だけ生成し、現在の kubectl の context に適用する
 
 tolo の e2e スクリプトは、Service を port-forward すれば同じように使える

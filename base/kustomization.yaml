@@ -40,9 +40,9 @@ configMapGenerator:
       - tenant-management/tenant-management.sql
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-0000183
+    newTag: sha-e0cf0ee
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
-    newTag: sha-0000183
+    newTag: sha-e0cf0ee
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
     newTag: sha-fbfa436
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
