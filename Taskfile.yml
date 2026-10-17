@@ -35,7 +35,7 @@ tasks:
             - chmod 600 {{.LOCAL_DIR}}/signing-key.pem {{.LOCAL_DIR}}/secrets.env
 
     local:images:
-        desc: Build the images with the tolo repository's Compose (TOLO_DIR) and tag them with the names the base uses.
+        desc: Build the images with the tolo repository's Compose (TOLO_DIR), and the web from its runner stage, and tag them with the names the base uses.
         dir: '{{.TOLO_DIR}}'
         dotenv: [".env"]
         env:
@@ -47,6 +47,11 @@ tasks:
               { docker compose config --images; echo {{.FAKEIDP_IMAGE}}; } | grep '^tolo-' | sort -u | while IFS=: read -r name tag; do
                 docker tag "$name:$tag" "ghcr.io/pj-hoakari/$name:sha-$tag"
               done
+            - |
+              tag=$(yq '.images[] | select(.name == "ghcr.io/pj-hoakari/tolo-web") | .newTag' {{.ROOT_DIR}}/base/kustomization.yaml)
+              ref=$(gh api "repos/pj-hoakari/tolo-web/commits/${tag#sha-}" --jq .sha)
+              NPM_TOKEN="${NPM_TOKEN:-$(gh auth token)}" docker build -q --secret id=npm_token,env=NPM_TOKEN --target runner \
+                -t "ghcr.io/pj-hoakari/tolo-web:$tag" "https://github.com/pj-hoakari/tolo-web.git#$ref"
         vars:
             FAKEIDP_IMAGE:
                 sh: yq .vars.FAKEIDP_IMAGE {{.TOLO_DIR}}/Taskfile.yml

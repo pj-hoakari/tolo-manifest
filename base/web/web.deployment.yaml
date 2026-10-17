@@ -13,16 +13,15 @@ spec:
         app.kubernetes.io/name: web
     spec:
       securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        runAsGroup: 1001
         seccompProfile:
           type: RuntimeDefault
       containers:
         - name: web
           image: ghcr.io/pj-hoakari/tolo-web
           env:
-            - name: NEXT_TELEMETRY_DISABLED
-              value: "1"
-            - name: NEXT_PUBLIC_API_MOCKING
-              value: disabled
             - name: GATEWAY_URL
               value: http://service-gateway:8080
             - name: SIGNALING_URL
@@ -55,3 +54,13 @@ spec:
               port: http
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: models
+              mountPath: /app/public/models
+              readOnly: true
+      volumes:
+        - name: models
+          emptyDir: {}

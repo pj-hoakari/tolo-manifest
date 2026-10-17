@@ -40,6 +40,8 @@ observation の `OBSERVATION_PAGE_URL_TEMPLATE` はブラウザから見たホ�
 fakeidp は、要求されたとおりの利用者と権限でトークンを発行する  
 base はアクセスの制御を持たないので、公開する環境では overlay の側で入口を絞る
 
+web は人数検出のモデルを `/app/public/models` から配信する。base はそこに空の `models` ボリュームを置くので、overlay がモデルを入れたボリュームに差し替える。web はこのディレクトリを起動時に読むので、モデルを入れ替えたら Pod を作り直す
+
 Postgres の PVC は `storageClassName` を指定しないので、クラスタの既定の StorageClass が使われる
 
 ## イメージ
