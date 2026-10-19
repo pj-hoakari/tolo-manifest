@@ -29,6 +29,8 @@ spec:
               value: http://edge-bridge:8787
             - name: OBSERVATION_API_MOCKING
               value: disabled
+            - name: TENANT_SUBDOMAIN_MOCKING
+              value: disabled
             - name: FAKEIDP_URL
               value: http://fakeidp:8080
             - name: TOLO_TENANT_ID
