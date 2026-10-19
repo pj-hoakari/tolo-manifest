@@ -43,21 +43,21 @@ configMapGenerator:
       - web/start-web.mjs
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-e0cf0ee
+    newTag: sha-9eb734f
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
     newTag: sha-e0cf0ee
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
-    newTag: sha-fbfa436
+    newTag: sha-00b472c
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
-    newTag: sha-fbfa436
+    newTag: sha-00b472c
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring
     newTag: sha-d9cfbfe
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
     newTag: sha-d9cfbfe
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-60f9280
+    newTag: sha-0013e6f
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-60f9280
+    newTag: sha-0013e6f
   - name: ghcr.io/pj-hoakari/tolo-operation
     newTag: sha-5bd4c59
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
@@ -67,7 +67,7 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-e5a530c
   - name: ghcr.io/pj-hoakari/tolo-web
-    newTag: sha-9285d0e
+    newTag: sha-74ce0f4
   - name: postgres
     newTag: 18-alpine
     digest: sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
