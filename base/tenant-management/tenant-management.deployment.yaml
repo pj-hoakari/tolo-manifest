@@ -41,6 +41,7 @@ spec:
             - psql
             - --set=ON_ERROR_STOP=1
             - --set=tenant_id=0123456789abcdef
+            - --set=tenant_subdomain=test
             - --set=event_id=fedcba9876543210
             - --set=owner_sub=user-owner
             - --file=/seed/tenant-management.sql

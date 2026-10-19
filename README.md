@@ -34,7 +34,8 @@ base は Firebase の接続先を設定しないので、overlay が edge-bridge
 edge-bridge は `FIRESTORE_PROJECT_ID` がないと起動しない  
 `overlays/local` はエミュレータを置き、その接続先を patch で足している
 
-observation の `OBSERVATION_PAGE_URL_TEMPLATE` はブラウザから見たホストを指すので、公開する環境では overlay で書き換える
+tenant-management の seed は固定のテナント（公開 ID `0123456789abcdef`）にサブドメイン `test` を付けて作る。web はこのテナントを `test.<ROOT_DOMAIN>` で開く。`ROOT_DOMAIN` は base で設定しないので、公開する環境では overlay で足す
+サブドメインを変えるときは、`base/tenant-management/tenant-management.deployment.yaml` の seed の引数 `--set=tenant_subdomain=test` を書き換える
 
 fakeidp は要求されたとおりの利用者と権限でトークンを発行する  
 base はアクセスの制御を持たないので、公開する環境では overlay の側で入口を絞る
