@@ -17,7 +17,7 @@ images_of() {
 }
 
 url_of() {
-  echo "https://s$1.${DOMAIN}"
+  echo "<https://s$1.${DOMAIN}>"
 }
 
 branch_of() {
