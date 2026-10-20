@@ -38,6 +38,12 @@ configMapGenerator:
   - name: tenant-management-seed
     files:
       - tenant-management/tenant-management.sql
+  - name: tolo-fixture
+    literals:
+      - tenant-id=0123456789abcdef
+      - tenant-subdomain=test
+      - event-id=fedcba9876543210
+      - owner-sub=user-owner
   - name: web-start
     files:
       - web/start-web.mjs

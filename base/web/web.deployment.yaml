@@ -34,11 +34,20 @@ spec:
             - name: FAKEIDP_URL
               value: http://fakeidp:8080
             - name: TOLO_TENANT_ID
-              value: 0123456789abcdef
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-fixture
+                  key: tenant-id
             - name: TOLO_EVENT_ID
-              value: fedcba9876543210
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-fixture
+                  key: event-id
             - name: TOLO_OWNER_SUB
-              value: user-owner
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-fixture
+                  key: owner-sub
             - name: TOLO_TOKEN_TTL_SECONDS
               value: "2592000"
           ports:
