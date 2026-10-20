@@ -1,0 +1,51 @@
+name: Preview
+
+on:
+    repository_dispatch:
+        types: [preview]
+
+permissions:
+    contents: read
+
+concurrency:
+    group: preview
+    queue: max
+
+jobs:
+    preview:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Create GitHub App token
+              id: token
+              uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+              with:
+                  client-id: ${{ vars.PREVIEW_APP_CLIENT_ID }}
+                  private-key: ${{ secrets.PREVIEW_APP_PRIVATE_KEY }}
+                  owner: ${{ github.repository_owner }}
+
+            - name: Checkout
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  token: ${{ steps.token.outputs.token }}
+
+            - name: Configure git
+              env:
+                  GH_TOKEN: ${{ steps.token.outputs.token }}
+                  APP_SLUG: ${{ steps.token.outputs.app-slug }}
+              run: |
+                  user_id="$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq .id)"
+                  git config user.name "${APP_SLUG}[bot]"
+                  git config user.email "${user_id}+${APP_SLUG}[bot]@users.noreply.github.com"
+
+            - name: Run preview ${{ github.event.client_payload.action }}
+              env:
+                  GH_TOKEN: ${{ steps.token.outputs.token }}
+                  ACTION: ${{ github.event.client_payload.action }}
+                  SOURCE_REPOSITORY: ${{ github.event.client_payload.repository }}
+                  SOURCE_NUMBER: ${{ github.event.client_payload.number }}
+                  SOURCE_TAG: ${{ github.event.client_payload.tag }}
+                  SOURCE_EVENT: ${{ github.event.client_payload.event }}
+                  PREVIEW_SLOTS: "5"
+                  PREVIEW_TTL_DAYS: "7"
+              run: .github/scripts/preview.sh "$ACTION"
