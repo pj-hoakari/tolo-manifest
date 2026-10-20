@@ -71,7 +71,7 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-flow-control
     newTag: sha-17cd12a
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
-    newTag: sha-e5a530c
+    newTag: sha-cd1776d
   - name: ghcr.io/pj-hoakari/tolo-web
     newTag: sha-74ce0f4
   - name: postgres
