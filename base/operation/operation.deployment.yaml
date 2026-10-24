@@ -54,6 +54,10 @@ spec:
               value: service-gateway
             - name: INTERNAL_JWT_AUDIENCE
               value: tolo-operation
+            - name: NATS_URL
+              value: nats://nats:4222
+            - name: NATS_STREAM_MAX_AGE
+              value: 24h
           ports:
             - name: http
               containerPort: 8080

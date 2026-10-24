@@ -17,6 +17,8 @@ resources:
   - graph-authoring/graph-authoring.service.yaml
   - graph-authoring/graph-authoring-db.statefulset.yaml
   - graph-authoring/graph-authoring-db.service.yaml
+  - nats/nats.statefulset.yaml
+  - nats/nats.service.yaml
   - observation/observation.deployment.yaml
   - observation/observation.service.yaml
   - observation/observation-db.statefulset.yaml
@@ -61,19 +63,22 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
     newTag: sha-d9cfbfe
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-0013e6f
+    newTag: sha-b0ebacc
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-0013e6f
+    newTag: sha-b0ebacc
   - name: ghcr.io/pj-hoakari/tolo-operation
-    newTag: sha-5bd4c59
+    newTag: sha-57b04d5
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
-    newTag: sha-5bd4c59
+    newTag: sha-57b04d5
   - name: ghcr.io/pj-hoakari/tolo-flow-control
     newTag: sha-17cd12a
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-e5a530c
   - name: ghcr.io/pj-hoakari/tolo-web
     newTag: sha-e20ea13
+  - name: nats
+    newTag: 2-alpine
+    digest: sha256:7ae34c25dfd6fe2e01c6483eabef20d796690fdcac6c4d94ca780a6cf9877fde
   - name: postgres
     newTag: 18-alpine
     digest: sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
