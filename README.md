@@ -45,7 +45,12 @@ fakeidp は起動のたびに署名鍵を作り直すので、fakeidp を作り�
 
 web は人数検出のモデルを `/app/public/models` から配信する。base はそこに空の `models` ボリュームを置くので、overlay がモデルを入れたボリュームに差し替える。web はこのディレクトリを起動時に読むので、モデルを入れ替えたら Pod を作り直す
 
-Postgres の PVC は `storageClassName` を指定しないので、クラスタの既定の StorageClass が使われる
+nats は JetStream を有効にした NATS を StatefulSet で置き、operation と observation が `nats://nats:4222` へ publish する  
+ストリームは operation と observation が起動時に作る。保存期限は両方の `NATS_STREAM_MAX_AGE`（`24h`）で決まるので、変えるときは 2 つをそろえる  
+JetStream から購読する側へ push する中継（jetstream-http-push）は、まだ base に含めない  
+NetworkPolicy で通信を絞る overlay は、operation と observation から nats の 4222 への通信を許す
+
+Postgres と NATS の PVC は `storageClassName` を指定しないので、クラスタの既定の StorageClass が使われる
 
 ## イメージ
 

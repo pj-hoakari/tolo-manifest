@@ -60,6 +60,10 @@ spec:
               value: http://flow-control:8080
             - name: OPERATION_URL
               value: http://service-gateway:8090
+            - name: NATS_URL
+              value: nats://nats:4222
+            - name: NATS_STREAM_MAX_AGE
+              value: 24h
           ports:
             - name: http
               containerPort: 8080
