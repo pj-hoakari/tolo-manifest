@@ -18,4 +18,4 @@ secretGenerator:
       - signing-key.pem
 images:
   - name: ghcr.io/pj-hoakari/tolo-firebase-emulator
-    newTag: sha-3063bd9
+    newTag: local

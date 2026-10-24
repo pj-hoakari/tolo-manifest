@@ -71,7 +71,7 @@ task local:check-images
 task local:up
 ```
 
-`task local:images` は base のイメージを ghcr から取得する。`overlays/local` だけで使う Firebase のエミュレータのイメージは公開していないので、tolo の compose でビルドし、overlay が参照する名前のタグを付ける  
+`task local:images` は base のイメージを ghcr から取得する。`overlays/local` だけで使う Firebase のエミュレータのイメージは公開していないので、tolo の compose で tolo の `firebase-emulator/`（本番相当のルール）からビルドし、overlay が参照する `ghcr.io/pj-hoakari/tolo-firebase-emulator:local` のタグを付ける  
 `task local:up` は Secret の材料を `overlays/local/` に一度だけ生成し、現在の kubectl の context に適用する
 
 tolo の e2e スクリプトは Service を port-forward すれば同じように使える
