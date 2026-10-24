@@ -28,7 +28,7 @@ tasks:
             - |
               {
                 echo "introspection-client-secret=$(openssl rand -hex 16)"
-                for svc in tenant-management graph-authoring observation operation; do
+                for svc in tenant-management graph-authoring observation operation guest realtime; do
                   echo "${svc}-db-password=$(openssl rand -hex 16)"
                 done
               } > {{.LOCAL_DIR}}/secrets.env
