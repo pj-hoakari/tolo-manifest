@@ -8,6 +8,7 @@ resources:
   - firebase-emulator.service.yaml
 patches:
   - path: edge-bridge.patch.yaml
+  - path: realtime.patch.yaml
   - path: web.patch.yaml
 secretGenerator:
   - name: tolo
@@ -17,4 +18,4 @@ secretGenerator:
       - signing-key.pem
 images:
   - name: ghcr.io/pj-hoakari/tolo-firebase-emulator
-    newTag: sha-e5a530c
+    newTag: sha-3063bd9

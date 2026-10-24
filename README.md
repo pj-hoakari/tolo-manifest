@@ -27,11 +27,13 @@ overlay は次のキーを持つ `tolo` を用意する
 | `graph-authoring-db-password` | graph-authoring、graph-authoring-db |
 | `observation-db-password` | observation、observation-db |
 | `operation-db-password` | operation、operation-db |
+| `guest-db-password` | guest、guest-db |
+| `realtime-db-password` | realtime、realtime-db |
 
 DB のパスワードは `DATABASE_URL` にそのまま埋め込まれるので、URL で使える文字（16 進数など）だけで作る
 
-base は Firebase の接続先を設定しないので、overlay が edge-bridge と web の env に足す  
-edge-bridge は `FIRESTORE_PROJECT_ID` がないと起動しない  
+base は Firebase の接続先を設定しないので、overlay が edge-bridge、realtime、web の env に足す  
+edge-bridge と realtime は `FIRESTORE_PROJECT_ID` がないと起動しない  
 `overlays/local` はエミュレータを置き、その接続先を patch で足している
 
 tenant-management の seed は固定のテナント（公開 ID `0123456789abcdef`）にサブドメイン `test` を付けて作る。web はこのテナントを `test.<ROOT_DOMAIN>` で開く。`ROOT_DOMAIN` は base で設定しないので、公開する環境では overlay で足す
@@ -47,8 +49,9 @@ web は人数検出のモデルを `/app/public/models` から配信する。bas
 
 nats は JetStream を有効にした NATS を StatefulSet で置き、operation と observation が `nats://nats:4222` へ publish する  
 ストリームは operation と observation が起動時に作る。保存期限は両方の `NATS_STREAM_MAX_AGE`（`24h`）で決まるので、変えるときは 2 つをそろえる  
-JetStream から購読する側へ push する中継（jetstream-http-push）は、まだ base に含めない  
-NetworkPolicy で通信を絞る overlay は、operation と observation から nats の 4222 への通信を許す
+push-relay（jetstream-http-push）は JetStream から読み、`base/push-relay/subscriptions.json` の購読ごとに受け口へ POST する。`guest-status` と `guest-messages` は guest、`realtime-delivery` は realtime へ届ける  
+push-relay の durable consumer は、作ったあとに publish されたメッセージだけを届ける。push-relay が初めて起動するより前に publish されたメッセージは届かない  
+NetworkPolicy で通信を絞る overlay は、operation、observation、push-relay から nats の 4222 への通信と、push-relay から guest と realtime の 8080 への通信を許す
 
 Postgres と NATS の PVC は `storageClassName` を指定しないので、クラスタの既定の StorageClass が使われる
 

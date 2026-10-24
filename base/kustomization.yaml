@@ -27,6 +27,15 @@ resources:
   - operation/operation.service.yaml
   - operation/operation-db.statefulset.yaml
   - operation/operation-db.service.yaml
+  - guest/guest.deployment.yaml
+  - guest/guest.service.yaml
+  - guest/guest-db.statefulset.yaml
+  - guest/guest-db.service.yaml
+  - realtime/realtime.deployment.yaml
+  - realtime/realtime.service.yaml
+  - realtime/realtime-db.statefulset.yaml
+  - realtime/realtime-db.service.yaml
+  - push-relay/push-relay.deployment.yaml
   - flow-control/flow-control.deployment.yaml
   - flow-control/flow-control.service.yaml
   - edge-bridge/edge-bridge.deployment.yaml
@@ -46,12 +55,15 @@ configMapGenerator:
       - tenant-subdomain=test
       - event-id=fedcba9876543210
       - owner-sub=user-owner
+  - name: push-relay-subscriptions
+    files:
+      - push-relay/subscriptions.json
   - name: web-start
     files:
       - web/start-web.mjs
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-9eb734f
+    newTag: sha-95df269
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
     newTag: sha-e0cf0ee
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
@@ -70,6 +82,16 @@ images:
     newTag: sha-57b04d5
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
     newTag: sha-57b04d5
+  - name: ghcr.io/pj-hoakari/tolo-guest
+    newTag: sha-2a34192
+  - name: ghcr.io/pj-hoakari/tolo-guest-migrate
+    newTag: sha-2a34192
+  - name: ghcr.io/pj-hoakari/tolo-realtime
+    newTag: sha-1ea746e
+  - name: ghcr.io/pj-hoakari/tolo-realtime-migrate
+    newTag: sha-1ea746e
+  - name: ghcr.io/pj-hoakari/jetstream-http-push
+    newTag: sha-ef072ef
   - name: ghcr.io/pj-hoakari/tolo-flow-control
     newTag: sha-17cd12a
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: push-relay
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: push-relay
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: push-relay
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: push-relay
+          image: ghcr.io/pj-hoakari/jetstream-http-push
+          env:
+            - name: NATS_URL
+              value: nats://nats:4222
+            - name: SUBSCRIPTIONS_FILE
+              value: /etc/jetstream-http-push/subscriptions.json
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: subscriptions
+              mountPath: /etc/jetstream-http-push
+              readOnly: true
+      volumes:
+        - name: subscriptions
+          configMap:
+            name: push-relay-subscriptions

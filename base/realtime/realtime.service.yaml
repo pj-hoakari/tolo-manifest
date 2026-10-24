@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: realtime
+  labels:
+    app.kubernetes.io/name: realtime
+spec:
+  selector:
+    app.kubernetes.io/name: realtime
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
