@@ -48,10 +48,7 @@ tasks:
             COMPOSE_FILE: compose.yml:compose.edge.yml
         cmds:
             - docker compose build firebase-emulator
-            - |
-              docker compose config --images firebase-emulator | while IFS=: read -r name tag; do
-                docker tag "$name:$tag" "ghcr.io/pj-hoakari/$name:sha-$tag"
-              done
+            - docker tag "$(docker compose config --images firebase-emulator)" ghcr.io/pj-hoakari/tolo-firebase-emulator:local
 
     local:check-images:
         desc: Fail when an image of the base is missing from the local Docker.
