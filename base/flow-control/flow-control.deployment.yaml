@@ -28,6 +28,10 @@ spec:
               value: "8388608"
             - name: TOLO_RPC_MAX_EXECUTION_SEC
               value: "720"
+            - name: TOLO_GRAPH_MAX_NODES
+              value: "60"
+            - name: TOLO_GRAPH_MAX_EDGES
+              value: "150"
           ports:
             - name: http
               containerPort: 8080
