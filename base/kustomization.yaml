@@ -63,7 +63,7 @@ configMapGenerator:
       - web/start-web.mjs
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-95df269
+    newTag: sha-91e8cd8
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
     newTag: sha-e0cf0ee
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
@@ -71,21 +71,21 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
     newTag: sha-00b472c
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring
-    newTag: sha-d9cfbfe
+    newTag: sha-d82aada
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
-    newTag: sha-d9cfbfe
+    newTag: sha-d82aada
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-b0ebacc
+    newTag: sha-8cf354a
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-b0ebacc
+    newTag: sha-8cf354a
   - name: ghcr.io/pj-hoakari/tolo-operation
     newTag: sha-57b04d5
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
     newTag: sha-57b04d5
   - name: ghcr.io/pj-hoakari/tolo-guest
-    newTag: sha-2a34192
+    newTag: sha-1978068
   - name: ghcr.io/pj-hoakari/tolo-guest-migrate
-    newTag: sha-2a34192
+    newTag: sha-1978068
   - name: ghcr.io/pj-hoakari/tolo-realtime
     newTag: sha-1ea746e
   - name: ghcr.io/pj-hoakari/tolo-realtime-migrate
@@ -97,7 +97,7 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-e5a530c
   - name: ghcr.io/pj-hoakari/tolo-web
-    newTag: sha-e20ea13
+    newTag: sha-165a696
   - name: nats
     newTag: 2-alpine
     digest: sha256:7ae34c25dfd6fe2e01c6483eabef20d796690fdcac6c4d94ca780a6cf9877fde
