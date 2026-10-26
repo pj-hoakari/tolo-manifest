@@ -42,6 +42,7 @@ resources:
   - edge-bridge/edge-bridge.service.yaml
   - web/web.deployment.yaml
   - web/web.service.yaml
+  - seed/seed.job.yaml
 configMapGenerator:
   - name: service-gateway-destinations
     files:
@@ -61,6 +62,15 @@ configMapGenerator:
   - name: web-start
     files:
       - web/start-web.mjs
+  - name: seed
+    files:
+      - seed/seed.mjs
+      - seed/graph.json
+      - seed/guide-map-layout.json
+      - seed/qr-locations.json
+      - seed/guest-settings.json
+      - seed/edge-devices.json
+      - seed/guest-messages.json
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
     newTag: sha-91e8cd8
@@ -101,6 +111,9 @@ images:
   - name: nats
     newTag: 2-alpine
     digest: sha256:7ae34c25dfd6fe2e01c6483eabef20d796690fdcac6c4d94ca780a6cf9877fde
+  - name: node
+    newTag: 24-slim
+    digest: sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205
   - name: postgres
     newTag: 18-alpine
     digest: sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873

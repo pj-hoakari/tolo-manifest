@@ -1,0 +1,1194 @@
+{
+  "nodes": [
+    {
+      "nodeId": "n_2f44fa0f",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "廊下",
+        "en": "Corridor"
+      },
+      "groupId": "g_0eb36458",
+      "layout": {
+        "x": 696,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_8b38f377",
+      "nodeType": "NODE_TYPE_GOAL_TRANSIT_MIXED",
+      "labels": {
+        "ja": "現在地",
+        "en": "Current location"
+      },
+      "groupId": "g_0eb36458",
+      "layout": {
+        "x": 105,
+        "y": 266
+      }
+    },
+    {
+      "nodeId": "n_fc14f2f4",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "エレベーター",
+        "en": "Elevator"
+      },
+      "groupId": "g_0eb36458",
+      "layout": {
+        "x": 1029,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_0b71bfbc",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_0eb36458",
+      "layout": {
+        "x": 1005,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_a150fd44",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_0eb36458",
+      "layout": {
+        "x": 427,
+        "y": 241
+      }
+    },
+    {
+      "nodeId": "n_374d6895",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "廊下",
+        "en": "Corridor"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 696,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_140c0d44",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "204",
+        "en": "Room 204"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 427,
+        "y": 114
+      }
+    },
+    {
+      "nodeId": "n_c4db2e1b",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "職員室",
+        "en": "Staff room"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 441,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_f718bc8f",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "男子・女子トイレ",
+        "en": "Restrooms"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 1243,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_a55dd9ce",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "エレベーター",
+        "en": "Elevator"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 1029,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_da06017a",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 1005,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_00f19cc9",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_73abacb8",
+      "layout": {
+        "x": 427,
+        "y": 241
+      }
+    },
+    {
+      "nodeId": "n_3598e5c8",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "廊下",
+        "en": "Corridor"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 696,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_d731631f",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "男子トイレ",
+        "en": "Men's restroom"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 275,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_5d4632e6",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "教室",
+        "en": "Classroom"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 1311,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_163538fe",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "女子トイレ",
+        "en": "Women's restroom"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 1151,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_8de0c98e",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "302",
+        "en": "Room 302"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 1250,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_f5331da5",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "３０６",
+        "en": "Room 306"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 702,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_2d83951d",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "３０８",
+        "en": "Room 308"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 208,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_f9954d5e",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "３０３",
+        "en": "Room 303"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 742,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_b017642b",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "３０９",
+        "en": "Room 309"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 82,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_ab3f0346",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "職員室",
+        "en": "Staff room"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 458,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_8922e3d4",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "エレベーター",
+        "en": "Elevator"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 1029,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_8500641a",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_a3cd32be",
+      "layout": {
+        "x": 1005,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_12408172",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "廊下",
+        "en": "Corridor"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 696,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_fbaca13a",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "男子トイレ",
+        "en": "Men's restroom"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 1147,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_6f8f9cc6",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "ラウンジ",
+        "en": "Lounge"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 1303,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_8940056b",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "女子トイレ",
+        "en": "Women's restroom"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 274,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_9e533cff",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "ラウンジ",
+        "en": "Lounge"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 1250,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_ab649c4c",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０５",
+        "en": "Room 405"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 848,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_6e4efc42",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０４",
+        "en": "Room 404"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 606,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_a303869f",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０３",
+        "en": "Room 403"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 363,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_68cb9111",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０２",
+        "en": "Room 402"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 110,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_88246a63",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０８",
+        "en": "Room 408"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 814,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_f64255d6",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０７",
+        "en": "Room 407"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 524,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_c0db542e",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "４０１",
+        "en": "Room 401"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 82,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_2785462e",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "エレベーター",
+        "en": "Elevator"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 1029,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_173ff218",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_c6f20eff",
+      "layout": {
+        "x": 1005,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_0dab9894",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "廊下",
+        "en": "Corridor"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 696,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_bb7519ad",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "男子トイレ",
+        "en": "Men's restroom"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 1151,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_0b5fa1c6",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "502",
+        "en": "Room 502"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 1311,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_aad38edb",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "女子トイレ",
+        "en": "Women's restroom"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 282,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_eb2347b5",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "501",
+        "en": "Room 501"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 1250,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_ef390073",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "５０８",
+        "en": "Room 508"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 823,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_16dc054f",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "５０３",
+        "en": "Room 503"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 645,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_0194f3e2",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "５０４",
+        "en": "Room 504"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 82,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_7cd1a0c4",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "５０７",
+        "en": "Room 507"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 571,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_4473a893",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "５０６",
+        "en": "Room 506"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 319,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_52e3cee1",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "５０５",
+        "en": "Room 505"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 80,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_341fadee",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "エレベーター",
+        "en": "Elevator"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 1029,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_f64642b3",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_2ea28f93",
+      "layout": {
+        "x": 1005,
+        "y": 378
+      }
+    },
+    {
+      "nodeId": "n_c31227d1",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "廊下",
+        "en": "Corridor"
+      },
+      "groupId": "g_6db0e5cb",
+      "layout": {
+        "x": 696,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_8a1af758",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "男子トイレ",
+        "en": "Men's restroom"
+      },
+      "groupId": "g_6db0e5cb",
+      "layout": {
+        "x": 777,
+        "y": 80
+      }
+    },
+    {
+      "nodeId": "n_39c750dd",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "女子トイレ",
+        "en": "Women's restroom"
+      },
+      "groupId": "g_6db0e5cb",
+      "layout": {
+        "x": 777,
+        "y": 418
+      }
+    },
+    {
+      "nodeId": "n_ca0bb1fc",
+      "nodeType": "NODE_TYPE_GOAL",
+      "labels": {
+        "ja": "ホール",
+        "en": "Hall"
+      },
+      "groupId": "g_6db0e5cb",
+      "layout": {
+        "x": 329,
+        "y": 249
+      }
+    },
+    {
+      "nodeId": "n_0dfb7c9e",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "エレベーター",
+        "en": "Elevator"
+      },
+      "groupId": "g_6db0e5cb",
+      "layout": {
+        "x": 1029,
+        "y": 136
+      }
+    },
+    {
+      "nodeId": "n_99fe5704",
+      "nodeType": "NODE_TYPE_TRANSIT_ONLY",
+      "labels": {
+        "ja": "階段",
+        "en": "Stairs"
+      },
+      "groupId": "g_6db0e5cb",
+      "layout": {
+        "x": 1005,
+        "y": 378
+      }
+    }
+  ],
+  "groups": [
+    {
+      "groupId": "g_0eb36458",
+      "labels": {
+        "ja": "1F",
+        "en": "1F"
+      },
+      "layout": {
+        "y": 1236,
+        "width": 1391,
+        "height": 498
+      }
+    },
+    {
+      "groupId": "g_73abacb8",
+      "labels": {
+        "ja": "2F",
+        "en": "2F"
+      },
+      "layout": {
+        "x": 1511,
+        "y": 1236,
+        "width": 1391,
+        "height": 498
+      }
+    },
+    {
+      "groupId": "g_a3cd32be",
+      "labels": {
+        "ja": "3F",
+        "en": "3F"
+      },
+      "layout": {
+        "y": 618,
+        "width": 1391,
+        "height": 498
+      }
+    },
+    {
+      "groupId": "g_c6f20eff",
+      "labels": {
+        "ja": "4F",
+        "en": "4F"
+      },
+      "layout": {
+        "x": 1511,
+        "y": 618,
+        "width": 1391,
+        "height": 498
+      }
+    },
+    {
+      "groupId": "g_2ea28f93",
+      "labels": {
+        "ja": "5F",
+        "en": "5F"
+      },
+      "layout": {
+        "width": 1391,
+        "height": 498
+      }
+    },
+    {
+      "groupId": "g_6db0e5cb",
+      "labels": {
+        "ja": "6Fホール",
+        "en": "6F Hall"
+      },
+      "layout": {
+        "x": 1511,
+        "width": 1391,
+        "height": 498
+      }
+    }
+  ],
+  "edges": [
+    {
+      "edgeId": "e_13f3dd5a",
+      "sourceNodeId": "n_8b38f377",
+      "targetNodeId": "n_2f44fa0f",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_d138d80c",
+      "sourceNodeId": "n_fc14f2f4",
+      "targetNodeId": "n_2f44fa0f",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_ff75a840",
+      "sourceNodeId": "n_0b71bfbc",
+      "targetNodeId": "n_2f44fa0f",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_5f43e759",
+      "sourceNodeId": "n_a150fd44",
+      "targetNodeId": "n_2f44fa0f",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_cca261a5",
+      "sourceNodeId": "n_140c0d44",
+      "targetNodeId": "n_374d6895",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_8de802da",
+      "sourceNodeId": "n_c4db2e1b",
+      "targetNodeId": "n_374d6895",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_357b8eb4",
+      "sourceNodeId": "n_f718bc8f",
+      "targetNodeId": "n_374d6895",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_6f8fd19e",
+      "sourceNodeId": "n_a55dd9ce",
+      "targetNodeId": "n_374d6895",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_87721076",
+      "sourceNodeId": "n_da06017a",
+      "targetNodeId": "n_374d6895",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_b931eaed",
+      "sourceNodeId": "n_00f19cc9",
+      "targetNodeId": "n_374d6895",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_6bf7fe6e",
+      "sourceNodeId": "n_d731631f",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_65a84520",
+      "sourceNodeId": "n_5d4632e6",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_885e5d39",
+      "sourceNodeId": "n_163538fe",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_e4aed36b",
+      "sourceNodeId": "n_8de0c98e",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_7a3a0b99",
+      "sourceNodeId": "n_f5331da5",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_40daeb32",
+      "sourceNodeId": "n_2d83951d",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_dc5843b5",
+      "sourceNodeId": "n_f9954d5e",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_8eb78c78",
+      "sourceNodeId": "n_b017642b",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_1ddb79df",
+      "sourceNodeId": "n_ab3f0346",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_d2c886ce",
+      "sourceNodeId": "n_8922e3d4",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_413ceca3",
+      "sourceNodeId": "n_8500641a",
+      "targetNodeId": "n_3598e5c8",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_43dbf48e",
+      "sourceNodeId": "n_fbaca13a",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_66d08b86",
+      "sourceNodeId": "n_6f8f9cc6",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_22603b9a",
+      "sourceNodeId": "n_8940056b",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_91a952b8",
+      "sourceNodeId": "n_9e533cff",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_f7570bbc",
+      "sourceNodeId": "n_ab649c4c",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_96976749",
+      "sourceNodeId": "n_6e4efc42",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_c69f5fd3",
+      "sourceNodeId": "n_a303869f",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_4900aa9c",
+      "sourceNodeId": "n_68cb9111",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_2e9a9110",
+      "sourceNodeId": "n_88246a63",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_f6cb60b9",
+      "sourceNodeId": "n_f64255d6",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_4157035d",
+      "sourceNodeId": "n_c0db542e",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_c236a1d6",
+      "sourceNodeId": "n_2785462e",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_a1468183",
+      "sourceNodeId": "n_173ff218",
+      "targetNodeId": "n_12408172",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_6852ab7e",
+      "sourceNodeId": "n_bb7519ad",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_1fae57a2",
+      "sourceNodeId": "n_0b5fa1c6",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_382485c8",
+      "sourceNodeId": "n_aad38edb",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_50c1b228",
+      "sourceNodeId": "n_eb2347b5",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_91ef03c6",
+      "sourceNodeId": "n_ef390073",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_3dfb92d2",
+      "sourceNodeId": "n_16dc054f",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_1f64e212",
+      "sourceNodeId": "n_0194f3e2",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_fa317eca",
+      "sourceNodeId": "n_7cd1a0c4",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_05c40811",
+      "sourceNodeId": "n_4473a893",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_f88a7159",
+      "sourceNodeId": "n_52e3cee1",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_d2d508e3",
+      "sourceNodeId": "n_341fadee",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_efb4a788",
+      "sourceNodeId": "n_f64642b3",
+      "targetNodeId": "n_0dab9894",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_4ed9007f",
+      "sourceNodeId": "n_8a1af758",
+      "targetNodeId": "n_c31227d1",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_978cbce8",
+      "sourceNodeId": "n_39c750dd",
+      "targetNodeId": "n_c31227d1",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_a726706e",
+      "sourceNodeId": "n_ca0bb1fc",
+      "targetNodeId": "n_c31227d1",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_8769813c",
+      "sourceNodeId": "n_0dfb7c9e",
+      "targetNodeId": "n_c31227d1",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_94ad81b5",
+      "sourceNodeId": "n_99fe5704",
+      "targetNodeId": "n_c31227d1",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_8b773b4d",
+      "sourceNodeId": "n_fc14f2f4",
+      "targetNodeId": "n_a55dd9ce",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_b69f1909",
+      "sourceNodeId": "n_a55dd9ce",
+      "targetNodeId": "n_8922e3d4",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_58f4be4c",
+      "sourceNodeId": "n_8922e3d4",
+      "targetNodeId": "n_2785462e",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_4d87d9ed",
+      "sourceNodeId": "n_2785462e",
+      "targetNodeId": "n_341fadee",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_7254025e",
+      "sourceNodeId": "n_341fadee",
+      "targetNodeId": "n_0dfb7c9e",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_5eca12b9",
+      "sourceNodeId": "n_0b71bfbc",
+      "targetNodeId": "n_da06017a",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_285380d0",
+      "sourceNodeId": "n_da06017a",
+      "targetNodeId": "n_8500641a",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_96c1f55b",
+      "sourceNodeId": "n_8500641a",
+      "targetNodeId": "n_173ff218",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_07012315",
+      "sourceNodeId": "n_173ff218",
+      "targetNodeId": "n_f64642b3",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_b7a17265",
+      "sourceNodeId": "n_f64642b3",
+      "targetNodeId": "n_99fe5704",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    },
+    {
+      "edgeId": "e_d83b7f18",
+      "sourceNodeId": "n_a150fd44",
+      "targetNodeId": "n_00f19cc9",
+      "direction": "EDGE_DIRECTION_BOTH_WAYS"
+    }
+  ]
+}

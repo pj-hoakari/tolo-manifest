@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "venue",
+    "components": [
+      "GUEST_COMPONENT_CROWD",
+      "GUEST_COMPONENT_QUEUES",
+      "GUEST_COMPONENT_STAFF_MESSAGES"
+    ]
+  }
+]

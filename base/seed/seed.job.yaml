@@ -1,0 +1,60 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: seed
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 10
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: seed
+    spec:
+      restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: seed
+          image: node
+          command: ["node", "/etc/tolo/seed/seed.mjs"]
+          env:
+            - name: GATEWAY_URL
+              value: http://service-gateway:8080
+            - name: FAKEIDP_URL
+              value: http://fakeidp:8080
+            - name: TOLO_TENANT_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-fixture
+                  key: tenant-id
+            - name: TOLO_EVENT_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-fixture
+                  key: event-id
+            - name: TOLO_OWNER_SUB
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-fixture
+                  key: owner-sub
+            - name: TOLO_TOKEN_TTL_SECONDS
+              value: "600"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: seed
+              mountPath: /etc/tolo/seed
+              readOnly: true
+      volumes:
+        - name: seed
+          configMap:
+            name: seed

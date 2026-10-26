@@ -64,6 +64,7 @@ tasks:
         desc: Apply the local overlay to the current kubectl context.
         deps: [local:secrets]
         cmds:
+            - kubectl -n tolo delete job seed --ignore-not-found
             - kubectl apply -k {{.LOCAL_DIR}}
             - kubectl -n tolo rollout status deploy --timeout=10m
             - kubectl -n tolo rollout status statefulset --timeout=10m
