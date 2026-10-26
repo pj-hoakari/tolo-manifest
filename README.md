@@ -47,6 +47,14 @@ fakeidp は起動のたびに署名鍵を作り直すので、fakeidp を作り�
 
 web は人数検出のモデルを `/app/public/models` から配信する。base はそこに空の `models` ボリュームを置くので、overlay がモデルを入れたボリュームに差し替える。web はこのディレクトリを起動時に読むので、モデルを入れ替えたら Pod を作り直す
 
+seed は Job で、固定のテナントとイベントに tolo-web のモックと同じ会場を作る。`base/seed/` の JSON は tolo-web の `src/mocks/fixtures` から写したもの  
+作るのはグラフ、案内マップのレイアウト、QR の設置箇所 4 件、ゲストページの設定、エッジデバイス 3 台、ゲスト向けのメッセージ 2 件  
+seed は一度も公開していないイベントでだけ動き、最後にグラフを公開する。公開したあとの同期では何もしないので、コンソールで消したものや変えたものは戻らない  
+途中で失敗したときは、次の実行が手順ごとに現在の状態を読み、ないものだけを作る。グラフは上書きしない。QR の設置箇所とエッジデバイスは名前で、メッセージは本文で、すでにあるかを判断する  
+Argo CD は PostSync フックとして同期のたびに Job を作り直す。`task local:up` は適用の前に Job を消す  
+guest は QR の設置箇所と案内マップを起動時と `RECONCILE_INTERVAL`（既定 10 分）ごとに取り込むので、seed のあとゲストページに出るまで最大でその時間がかかる  
+NetworkPolicy で通信を絞る overlay は、seed から fakeidp と service-gateway の 8080 への通信を許す
+
 nats は JetStream を有効にした NATS を StatefulSet で置き、operation と observation が `nats://nats:4222` へ publish する  
 ストリームは operation と observation が起動時に作る。保存期限は両方の `NATS_STREAM_MAX_AGE`（`24h`）で決まるので、変えるときは 2 つをそろえる  
 push-relay（jetstream-http-push）は JetStream から読み、`base/push-relay/subscriptions.json` の購読ごとに受け口へ POST する。`guest-status` と `guest-messages` は guest、`realtime-delivery` は realtime へ届ける  
