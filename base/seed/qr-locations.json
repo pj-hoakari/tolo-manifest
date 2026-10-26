@@ -1,0 +1,31 @@
+[
+  {
+    "name": "1F 現在地",
+    "kind": "venue",
+    "anchor": {
+      "pointId": "n_8b38f377"
+    }
+  },
+  {
+    "name": "4F ラウンジ",
+    "kind": "venue",
+    "anchor": {
+      "pointId": "n_6f8f9cc6"
+    }
+  },
+  {
+    "name": "1F 現在地〜廊下",
+    "kind": "venue",
+    "anchor": {
+      "routeId": "e_13f3dd5a",
+      "routePosition": 0.5
+    }
+  },
+  {
+    "name": "1F 廊下",
+    "kind": "venue",
+    "anchor": {
+      "pointId": "n_2f44fa0f"
+    }
+  }
+]

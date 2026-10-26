@@ -1,0 +1,1785 @@
+{
+  "groups": [
+    {
+      "groupId": "g_0eb36458"
+    },
+    {
+      "groupId": "g_73abacb8"
+    },
+    {
+      "groupId": "g_a3cd32be"
+    },
+    {
+      "groupId": "g_c6f20eff"
+    },
+    {
+      "groupId": "g_2ea28f93"
+    },
+    {
+      "groupId": "g_6db0e5cb"
+    }
+  ],
+  "objects": [
+    {
+      "objectId": "t-95fb7e64-6ade-489f-a5eb-6a4b3a5ab807",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "KCG本館１F"
+        }
+      },
+      "color": "slate",
+      "text": {
+        "position": {
+          "x": 1040,
+          "y": 60
+        },
+        "size": 22
+      }
+    },
+    {
+      "objectId": "c-b1279099-a43a-4f28-8390-6dbbbbcafbd9",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_fc14f2f4",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d78ab481-e2f5-45a8-a01d-01e631c901cd",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-5425af4c-64eb-4cb4-9b54-7d72667707de",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_fc14f2f4",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-9e0c7c01-e497-488f-bfe6-4d26a1aac6b8",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-a9ae77dc-7846-4357-8efd-af431bb2e894",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_fc14f2f4",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 268
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d40046bb-8d67-49aa-9c40-629593d2e34e",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "t-6cd661e5-096b-4d08-a751-f6b495061c5b",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "KCG本館２F"
+        }
+      },
+      "color": "slate",
+      "text": {
+        "position": {
+          "x": 1040,
+          "y": 60
+        },
+        "size": 22
+      }
+    },
+    {
+      "objectId": "c-80970a7e-c0af-4a1e-b268-5ebf81d37f57",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_a55dd9ce",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d78ab481-e2f5-45a8-a01d-01e631c901cd",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-5b0dfcfb-22f6-4a54-8c43-87fc3b83d4e4",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_a55dd9ce",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-9e0c7c01-e497-488f-bfe6-4d26a1aac6b8",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-43928b5e-338b-4e25-bf06-95b37be5bd23",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_a55dd9ce",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 268
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d40046bb-8d67-49aa-9c40-629593d2e34e",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "s-6e91341f-ea22-4976-bf3b-4a11c3f095c3",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "204"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_140c0d44",
+      "place": {
+        "center": {
+          "x": 870,
+          "y": 171
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 660,
+        "height": 134,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "s-0171d677-85b8-4b2f-92e6-993c8e08b796",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "職員室"
+        }
+      },
+      "color": "emerald",
+      "pointId": "n_c4db2e1b",
+      "place": {
+        "center": {
+          "x": 880,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 680,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "c-3333c895-fe04-43e4-911f-6d6b0006309a",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_0b71bfbc",
+      "place": {
+        "center": {
+          "x": 1282.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-32c7e460-ccd3-4326-88b2-11c513222fd0",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 100,
+        "markHeight": 160
+      }
+    },
+    {
+      "objectId": "c-be237d2e-96a2-4b7f-9bc9-8a3296ed318a",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_da06017a",
+      "place": {
+        "center": {
+          "x": 1282.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-32c7e460-ccd3-4326-88b2-11c513222fd0",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 100,
+        "markHeight": 160
+      }
+    },
+    {
+      "objectId": "t-c3a06de8-543c-4fb5-97fb-4a4c133b218a",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "KCG本館３F"
+        }
+      },
+      "color": "slate",
+      "text": {
+        "position": {
+          "x": 1040,
+          "y": 60
+        },
+        "size": 22
+      }
+    },
+    {
+      "objectId": "a-45366d65-72cb-41be-b11a-38f9f957abaa",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "本館"
+        }
+      },
+      "color": "indigo",
+      "area": {
+        "points": [
+          {
+            "x": 540,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 580
+          },
+          {
+            "x": 540,
+            "y": 580
+          }
+        ]
+      }
+    },
+    {
+      "objectId": "c-2abeb175-ebfe-438d-b258-9383db080d25",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_8922e3d4",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d78ab481-e2f5-45a8-a01d-01e631c901cd",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-0321b4bf-69d6-4263-b59d-216eac39a034",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_8922e3d4",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-9e0c7c01-e497-488f-bfe6-4d26a1aac6b8",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-6832c9d9-d327-425f-99a5-22e85af9baa3",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_8922e3d4",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 268
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d40046bb-8d67-49aa-9c40-629593d2e34e",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-ff76566b-28dd-4aac-a9d3-4f2726eeff1e",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_8500641a",
+      "place": {
+        "center": {
+          "x": 1282.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-32c7e460-ccd3-4326-88b2-11c513222fd0",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 100,
+        "markHeight": 160
+      }
+    },
+    {
+      "objectId": "p-d4558f22-c532-4172-96ed-d80310dea0d8",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "男子トイレ"
+        }
+      },
+      "color": "sky",
+      "pointId": "n_d731631f",
+      "place": {
+        "center": {
+          "x": 761.21875,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 101.15625,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-0940659b-5d99-49aa-8fac-fe962255a810",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "教室"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_5d4632e6",
+      "place": {
+        "center": {
+          "x": 1501.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 120,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-9f74ec93-6aae-4ab6-807d-2f873dac9cd2",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "女子トイレ"
+        }
+      },
+      "color": "rose",
+      "pointId": "n_163538fe",
+      "place": {
+        "center": {
+          "x": 1387.140625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 100,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-cf8119bd-95a4-49b1-af55-29cb65217637",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "302"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_8de0c98e",
+      "place": {
+        "center": {
+          "x": 1457.6953125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 195.390625,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-0c024aef-4260-42f8-bf4b-e57344f6be82",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "３０６"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_f5331da5",
+      "place": {
+        "center": {
+          "x": 1066.576171875,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 346.5429687499999,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-0526a53c-d1e8-4724-9054-3b8e522175ef",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "３０８"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_2d83951d",
+      "place": {
+        "center": {
+          "x": 713.380859375,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 333.23828125,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-fcdd66e7-d248-455d-87c9-92a158ea9b06",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "３０３"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_f9954d5e",
+      "place": {
+        "center": {
+          "x": 1095.314453125,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 245.74609375,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-e3f72c0f-d20b-4fc5-89cc-64bdab518c58",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "３０９"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_b017642b",
+      "place": {
+        "center": {
+          "x": 623.30078125,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "a-d9ab47f4-5088-4779-a107-3ea1e518e05a",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "本館"
+        }
+      },
+      "color": "indigo",
+      "area": {
+        "points": [
+          {
+            "x": 540,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 580
+          },
+          {
+            "x": 540,
+            "y": 580
+          }
+        ]
+      }
+    },
+    {
+      "objectId": "a-78b51219-3594-4497-930b-d0d8f0e9fdf0",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "本館"
+        }
+      },
+      "color": "indigo",
+      "area": {
+        "points": [
+          {
+            "x": 540,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 580
+          },
+          {
+            "x": 540,
+            "y": 580
+          }
+        ]
+      }
+    },
+    {
+      "objectId": "p-d05e11a5-2c15-495e-b5ef-5ecde65753e0",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "男子・女子トイレ"
+        }
+      },
+      "color": "violet",
+      "pointId": "n_f718bc8f",
+      "place": {
+        "center": {
+          "x": 1452.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 214.71875,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "t-ac8738f8-5c40-445a-a510-9a4c3e283bb4",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "KCG本館４F"
+        }
+      },
+      "color": "slate",
+      "text": {
+        "position": {
+          "x": 1040,
+          "y": 60
+        },
+        "size": 22
+      }
+    },
+    {
+      "objectId": "a-e2d80ab4-428d-498a-951a-a46e8f39fd40",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "本館"
+        }
+      },
+      "color": "indigo",
+      "area": {
+        "points": [
+          {
+            "x": 540,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 580
+          },
+          {
+            "x": 540,
+            "y": 580
+          }
+        ]
+      }
+    },
+    {
+      "objectId": "c-0dcf414d-4249-4d3a-834a-56eca04efb81",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_2785462e",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d78ab481-e2f5-45a8-a01d-01e631c901cd",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-56490709-521e-4e66-a967-5c8745f3df35",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_2785462e",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-9e0c7c01-e497-488f-bfe6-4d26a1aac6b8",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-6c0782c7-4615-44ce-ad70-69fe86b34f2b",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_2785462e",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 268
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d40046bb-8d67-49aa-9c40-629593d2e34e",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-59a39951-e02a-47e3-a419-246e7c2667b2",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_173ff218",
+      "place": {
+        "center": {
+          "x": 1282.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-32c7e460-ccd3-4326-88b2-11c513222fd0",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 100,
+        "markHeight": 160
+      }
+    },
+    {
+      "objectId": "p-5e6563d1-287c-467f-907a-05445363935a",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "男子トイレ"
+        }
+      },
+      "color": "sky",
+      "pointId": "n_fbaca13a",
+      "place": {
+        "center": {
+          "x": 1384.59375,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 85.1875,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-c73b81d7-c1db-458d-8ebf-ed84c759cabd",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "ラウンジ"
+        }
+      },
+      "color": "amber",
+      "pointId": "n_6f8f9cc6",
+      "place": {
+        "center": {
+          "x": 1495.390625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 120,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-33379bd7-0dd0-434d-b621-91b7b094d3b5",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "女子トイレ"
+        }
+      },
+      "color": "rose",
+      "pointId": "n_8940056b",
+      "place": {
+        "center": {
+          "x": 760.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 100,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-ff723c68-e3ac-4d44-ae9f-1d171d139978",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "ラウンジ"
+        }
+      },
+      "color": "amber",
+      "pointId": "n_9e533cff",
+      "place": {
+        "center": {
+          "x": 1457.6953125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 195.390625,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-d99ac63a-1cc7-4b3d-9860-7659fe5e8878",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０５"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_ab649c4c",
+      "place": {
+        "center": {
+          "x": 1170.791015625,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 179.99999999999997,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-f2f9769d-0865-4163-8d45-f0131f9bae9e",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０４"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_6e4efc42",
+      "place": {
+        "center": {
+          "x": 997.51953125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-3d82f608-d3d1-41db-af42-8af2cc2d3740",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０３"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_a303869f",
+      "place": {
+        "center": {
+          "x": 824.248046875,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-a34ac401-2c34-44f4-88b0-b03596264650",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０２"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_68cb9111",
+      "place": {
+        "center": {
+          "x": 643.4775390625,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 173.271484375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-1b8f3644-fd54-462b-a375-311b2b1a52ee",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０８"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_88246a63",
+      "place": {
+        "center": {
+          "x": 1146.45703125,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-f9f4a369-f4b3-4715-86ef-14dfc15fa329",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０７"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_f64255d6",
+      "place": {
+        "center": {
+          "x": 939.55859375,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 239.1171875,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-60a7b846-6f22-4e4c-8dd6-eedd1e7b9cfb",
+      "groupId": "g_c6f20eff",
+      "title": {
+        "texts": {
+          "ja": "４０１"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_c0db542e",
+      "place": {
+        "center": {
+          "x": 623.30078125,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-b0d8f522-d95b-451c-8c6b-330e7e5b076c",
+      "groupId": "g_a3cd32be",
+      "title": {
+        "texts": {
+          "ja": "職員室"
+        }
+      },
+      "color": "emerald",
+      "pointId": "n_ab3f0346",
+      "place": {
+        "center": {
+          "x": 892.119140625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 144.23828125,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "t-2e3c272c-cb1a-4174-86b0-dc37c00a4eee",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "KCG本館５F"
+        }
+      },
+      "color": "slate",
+      "text": {
+        "position": {
+          "x": 1040,
+          "y": 60
+        },
+        "size": 22
+      }
+    },
+    {
+      "objectId": "a-e08ea405-e920-4aac-8f8a-70fbbfa29316",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "本館"
+        }
+      },
+      "color": "indigo",
+      "area": {
+        "points": [
+          {
+            "x": 540,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 580
+          },
+          {
+            "x": 540,
+            "y": 580
+          }
+        ]
+      }
+    },
+    {
+      "objectId": "c-8390f93f-fec9-4768-a99c-b04bc3f06358",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_341fadee",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d78ab481-e2f5-45a8-a01d-01e631c901cd",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-6b722670-d17c-47e1-8216-2c2cc2116ecc",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_341fadee",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-9e0c7c01-e497-488f-bfe6-4d26a1aac6b8",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-55edfe97-d978-4832-a7f7-6d9b6b1a518c",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_341fadee",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 268
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d40046bb-8d67-49aa-9c40-629593d2e34e",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-70aebb9d-7e76-4528-a2e9-e87a63c17c5c",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_f64642b3",
+      "place": {
+        "center": {
+          "x": 1282.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-32c7e460-ccd3-4326-88b2-11c513222fd0",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 100,
+        "markHeight": 160
+      }
+    },
+    {
+      "objectId": "p-dd2e1ecc-1d32-4e51-91b6-706349de3d8f",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "男子トイレ"
+        }
+      },
+      "color": "sky",
+      "pointId": "n_bb7519ad",
+      "place": {
+        "center": {
+          "x": 1387.140625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 101.15625,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-363a48df-9dbd-454b-8f62-9ddff82a34e4",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "502"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_0b5fa1c6",
+      "place": {
+        "center": {
+          "x": 1501.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 120,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-949ecffa-f2bd-4dff-a226-cd3cebd252bb",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "女子トイレ"
+        }
+      },
+      "color": "rose",
+      "pointId": "n_aad38edb",
+      "place": {
+        "center": {
+          "x": 766.078125,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 100,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-921a9bed-6883-4c9a-9336-6aa638d1ad9c",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "501"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_eb2347b5",
+      "place": {
+        "center": {
+          "x": 1457.6953125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 195.390625,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-9e2c71b9-a40f-4733-adf8-33ff04137a0c",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "５０８"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_ef390073",
+      "place": {
+        "center": {
+          "x": 1152.7197265625,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 174.255859375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-6c2be06a-3c21-486f-bb97-490754e4ae4c",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "５０３"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_16dc054f",
+      "place": {
+        "center": {
+          "x": 1025.515625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 391.59375,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-6c26d7e3-1f04-4add-9696-f6e7e56d897a",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "５０４"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_0194f3e2",
+      "place": {
+        "center": {
+          "x": 623.30078125,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 158.2734375,
+        "height": 160,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-9762644c-01b4-44de-8bc4-af3d2b66bc0f",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "５０７"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_7cd1a0c4",
+      "place": {
+        "center": {
+          "x": 972.7958984375,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 174.255859375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-2e92a788-a703-4587-8cdb-c2aa631881b5",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "５０６"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_4473a893",
+      "place": {
+        "center": {
+          "x": 792.8720703125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 174.255859375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-baa7c426-b16d-45fa-9eb5-6ed7e1af9f09",
+      "groupId": "g_2ea28f93",
+      "title": {
+        "texts": {
+          "ja": "５０５"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_52e3cee1",
+      "place": {
+        "center": {
+          "x": 622.1201171875,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 155.912109375,
+        "height": 180,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "t-7c9b50c9-1803-467a-b8da-a03d2f77d808",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "KCG本館５F"
+        }
+      },
+      "color": "slate",
+      "text": {
+        "position": {
+          "x": 1040,
+          "y": 60
+        },
+        "size": 22
+      }
+    },
+    {
+      "objectId": "a-9a6ef6aa-b85b-4b02-902c-d9ac76c60cf1",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "本館"
+        }
+      },
+      "color": "indigo",
+      "area": {
+        "points": [
+          {
+            "x": 540,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 100
+          },
+          {
+            "x": 1560,
+            "y": 580
+          },
+          {
+            "x": 540,
+            "y": 580
+          }
+        ]
+      }
+    },
+    {
+      "objectId": "c-2c07f844-f15a-4658-b9f5-8969201f0247",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_0dfb7c9e",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d78ab481-e2f5-45a8-a01d-01e631c901cd",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-a59d762c-c0e2-4d71-9c31-2927e9c3d5f8",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_0dfb7c9e",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 198
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-9e0c7c01-e497-488f-bfe6-4d26a1aac6b8",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-c95cc349-74a5-40f3-86f3-b895ef5a7443",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "エレベーター"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_0dfb7c9e",
+      "place": {
+        "center": {
+          "x": 1299.923828125,
+          "y": 268
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_ELEVATOR",
+          "link": "l-d40046bb-8d67-49aa-9c40-629593d2e34e",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 40,
+        "markHeight": 40
+      }
+    },
+    {
+      "objectId": "c-8680900e-50e6-4642-9866-66ee360992c9",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_99fe5704",
+      "place": {
+        "center": {
+          "x": 1282.640625,
+          "y": 500
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-32c7e460-ccd3-4326-88b2-11c513222fd0",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 100,
+        "markHeight": 160
+      }
+    },
+    {
+      "objectId": "p-89f17037-1a77-4a49-a890-51e45b30aa4b",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "男子トイレ"
+        }
+      },
+      "color": "sky",
+      "pointId": "n_8a1af758",
+      "place": {
+        "center": {
+          "x": 1120,
+          "y": 128
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 120,
+        "height": 60,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "p-02f74849-07ec-48e5-a8ba-3eab9f1ce867",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "女子トイレ"
+        }
+      },
+      "color": "rose",
+      "pointId": "n_39c750dd",
+      "place": {
+        "center": {
+          "x": 1120,
+          "y": 550
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 120,
+        "height": 60,
+        "pin": true
+      }
+    },
+    {
+      "objectId": "c-2e81b8a7-041f-42be-9279-e31e60120bbe",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_a150fd44",
+      "place": {
+        "center": {
+          "x": 870,
+          "y": 329
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-fa83f622-2a18-470d-961e-47cfd76140e9",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 230,
+        "markHeight": 134
+      }
+    },
+    {
+      "objectId": "c-42f82a54-d305-4d7d-a201-c2e1bdf52c4e",
+      "groupId": "g_73abacb8",
+      "title": {
+        "texts": {
+          "ja": "階段"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_00f19cc9",
+      "place": {
+        "center": {
+          "x": 870,
+          "y": 329
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48,
+        "connector": {
+          "type": "GUIDE_MAP_CONNECTOR_TYPE_STAIRS",
+          "link": "l-fa83f622-2a18-470d-961e-47cfd76140e9",
+          "direction": "GUIDE_MAP_CONNECTOR_DIRECTION_BOTH"
+        },
+        "markWidth": 230,
+        "markHeight": 134
+      }
+    },
+    {
+      "objectId": "p-b4e872bc-1e95-4cbe-bbbe-dd3f8e3a3a24",
+      "groupId": "g_0eb36458",
+      "title": {
+        "texts": {
+          "ja": "現在地"
+        }
+      },
+      "color": "indigo",
+      "pointId": "n_8b38f377",
+      "place": {
+        "center": {
+          "x": 640,
+          "y": 360
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_PIN",
+        "width": 120,
+        "height": 48
+      }
+    },
+    {
+      "objectId": "s-c2260944-e5cb-4dd7-b02a-0d46d92ef586",
+      "groupId": "g_6db0e5cb",
+      "title": {
+        "texts": {
+          "ja": "ホール"
+        }
+      },
+      "color": "slate",
+      "pointId": "n_ca0bb1fc",
+      "place": {
+        "center": {
+          "x": 800,
+          "y": 339
+        },
+        "shape": "GUIDE_MAP_PLACE_SHAPE_RECT",
+        "width": 520,
+        "height": 482,
+        "pin": true
+      }
+    }
+  ],
+  "startObjectId": "p-b4e872bc-1e95-4cbe-bbbe-dd3f8e3a3a24"
+}
