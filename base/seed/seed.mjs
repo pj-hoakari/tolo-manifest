@@ -117,8 +117,16 @@ const steps = {
   },
 };
 
-if ((await getGraph())?.meta?.revisionId) {
-  console.log("the event is already published: skipped");
+const nodeIds = (document) => (document?.nodes ?? []).map((node) => node.nodeId).sort().join();
+const graph = await getGraph();
+const reason = graph?.meta?.revisionId
+  ? "the event is already published"
+  : graph && nodeIds(graph.document) !== nodeIds(await fixture("graph.json"))
+    ? "the event has a graph that the seed did not make"
+    : undefined;
+
+if (reason) {
+  console.log(`${reason}: skipped`);
 } else {
   for (const [name, step] of Object.entries(steps)) {
     console.log(`${name}: ${await step()}`);
