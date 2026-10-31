@@ -73,13 +73,13 @@ configMapGenerator:
       - seed/guest-messages.json
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-91e8cd8
+    newTag: sha-d892c75
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
     newTag: sha-e0cf0ee
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
-    newTag: sha-00b472c
+    newTag: sha-6673e8b
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
-    newTag: sha-00b472c
+    newTag: sha-6673e8b
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring
     newTag: sha-d82aada
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
