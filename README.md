@@ -45,6 +45,9 @@ base はアクセスの制御を持たないので、公開する環境では ov
 web は起動時に fakeidp から、固定のテナントとイベント（tenant-management の seed と同じ値）のトークンを発行して gateway に付ける。トークンの有効期限は 30 日とする  
 fakeidp は起動のたびに署名鍵を作り直すので、fakeidp を作り直したときとトークンの期限が切れたときは web も作り直す
 
+web は `AUTH_MOCKING=enabled` で動き、ログインの代わりにこの固定のトークンを使う  
+`ROOT_DOMAIN` が `localhost` でもそのサブドメインでもないと web は起動しないので、公開する環境では overlay の `AUTH_MOCKING_ALLOWED_ROOT_DOMAINS` にそのドメインを足す。カンマで区切って複数書け、サブドメインも許される
+
 web は人数検出のモデルを `/app/public/models` から配信する。base はそこに空の `models` ボリュームを置くので、overlay がモデルを入れたボリュームに差し替える。web はこのディレクトリを起動時に読むので、モデルを入れ替えたら Pod を作り直す
 
 seed は Job で、固定のテナントとイベントに tolo-web のモックと同じ会場を作る。`base/seed/` の JSON は tolo-web の `src/mocks/fixtures` から写したもの  

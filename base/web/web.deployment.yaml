@@ -31,6 +31,8 @@ spec:
               value: disabled
             - name: TENANT_SUBDOMAIN_MOCKING
               value: disabled
+            - name: AUTH_MOCKING
+              value: enabled
             - name: FAKEIDP_URL
               value: http://fakeidp:8080
             - name: TOLO_TENANT_ID
