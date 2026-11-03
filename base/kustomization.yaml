@@ -85,9 +85,9 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
     newTag: sha-d82aada
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-8cf354a
+    newTag: sha-93bb0e5
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-8cf354a
+    newTag: sha-93bb0e5
   - name: ghcr.io/pj-hoakari/tolo-operation
     newTag: sha-57b04d5
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
@@ -103,7 +103,7 @@ images:
   - name: ghcr.io/pj-hoakari/jetstream-http-push
     newTag: sha-ef072ef
   - name: ghcr.io/pj-hoakari/tolo-flow-control
-    newTag: sha-dfd748a
+    newTag: sha-9b61876
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-e5a530c
   - name: ghcr.io/pj-hoakari/tolo-web
