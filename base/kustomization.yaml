@@ -75,15 +75,15 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
     newTag: sha-b100925
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
-    newTag: sha-e0cf0ee
+    newTag: sha-d892c75
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
-    newTag: sha-612260d
+    newTag: sha-a9976bd
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
-    newTag: sha-612260d
+    newTag: sha-a9976bd
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring
-    newTag: sha-d82aada
+    newTag: sha-bdc98b6
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
-    newTag: sha-d82aada
+    newTag: sha-bdc98b6
   - name: ghcr.io/pj-hoakari/tolo-observation
     newTag: sha-8b87318
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
@@ -97,9 +97,9 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-guest-migrate
     newTag: sha-1978068
   - name: ghcr.io/pj-hoakari/tolo-realtime
-    newTag: sha-1ea746e
+    newTag: sha-34040ef
   - name: ghcr.io/pj-hoakari/tolo-realtime-migrate
-    newTag: sha-1ea746e
+    newTag: sha-34040ef
   - name: ghcr.io/pj-hoakari/jetstream-http-push
     newTag: sha-ef072ef
   - name: ghcr.io/pj-hoakari/tolo-flow-control
@@ -107,7 +107,7 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-e5a530c
   - name: ghcr.io/pj-hoakari/tolo-web
-    newTag: sha-616e3bf
+    newTag: sha-c62c6fc
   - name: nats
     newTag: 2-alpine
     digest: sha256:7ae34c25dfd6fe2e01c6483eabef20d796690fdcac6c4d94ca780a6cf9877fde
