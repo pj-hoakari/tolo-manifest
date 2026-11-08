@@ -39,8 +39,6 @@ spec:
         - name: observation
           image: ghcr.io/pj-hoakari/tolo-observation
           env:
-            - name: SERVER_ADDR
-              value: :8080
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -50,10 +48,6 @@ spec:
               value: postgres://observation-db:5432/observation?sslmode=disable&user=observation&password=$(DB_PASSWORD)
             - name: INTERNAL_JWKS_URL
               value: http://service-gateway:8080/.well-known/jwks.json
-            - name: INTERNAL_JWT_ISSUER
-              value: service-gateway
-            - name: INTERNAL_JWT_AUDIENCE
-              value: tolo-observation
             - name: GRAPH_AUTHORING_URL
               value: http://service-gateway:8090
             - name: FLOW_CONTROL_URL
@@ -62,8 +56,6 @@ spec:
               value: http://service-gateway:8090
             - name: NATS_URL
               value: nats://nats:4222
-            - name: NATS_STREAM_MAX_AGE
-              value: 24h
           ports:
             - name: http
               containerPort: 8080

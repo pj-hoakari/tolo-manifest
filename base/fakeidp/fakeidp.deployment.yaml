@@ -23,8 +23,6 @@ spec:
         - name: fakeidp
           image: ghcr.io/pj-hoakari/tolo-fakeidp
           env:
-            - name: SERVER_ADDR
-              value: :8080
             - name: FAKE_IDP_ISSUER
               value: http://fakeidp:8080
             - name: FAKE_IDP_AUDIENCE
