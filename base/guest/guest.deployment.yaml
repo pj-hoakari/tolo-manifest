@@ -39,8 +39,6 @@ spec:
         - name: guest
           image: ghcr.io/pj-hoakari/tolo-guest
           env:
-            - name: SERVER_ADDR
-              value: :8080
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -50,10 +48,6 @@ spec:
               value: postgres://guest-db:5432/guest?sslmode=disable&user=guest&password=$(DB_PASSWORD)
             - name: INTERNAL_JWKS_URL
               value: http://service-gateway:8080/.well-known/jwks.json
-            - name: INTERNAL_JWT_ISSUER
-              value: service-gateway
-            - name: INTERNAL_JWT_AUDIENCE
-              value: tolo-guest
             - name: OBSERVATION_URL
               value: http://service-gateway:8090
             - name: OPERATION_URL

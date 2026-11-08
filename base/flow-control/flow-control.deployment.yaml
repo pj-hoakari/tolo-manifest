@@ -22,12 +22,6 @@ spec:
         - name: flow-control
           image: ghcr.io/pj-hoakari/tolo-flow-control
           env:
-            - name: PORT
-              value: "8080"
-            - name: TOLO_RPC_MAX_REQUEST_BYTES
-              value: "8388608"
-            - name: TOLO_RPC_MAX_EXECUTION_SEC
-              value: "720"
             - name: TOLO_GRAPH_MAX_NODES
               value: "60"
             - name: TOLO_GRAPH_MAX_EDGES

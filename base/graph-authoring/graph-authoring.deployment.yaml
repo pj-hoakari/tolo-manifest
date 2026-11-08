@@ -39,8 +39,6 @@ spec:
         - name: graph-authoring
           image: ghcr.io/pj-hoakari/tolo-graph-authoring
           env:
-            - name: SERVER_ADDR
-              value: :8080
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -50,10 +48,6 @@ spec:
               value: postgres://graph-authoring-db:5432/graph_authoring?sslmode=disable&user=graph_authoring&password=$(DB_PASSWORD)
             - name: INTERNAL_JWKS_URL
               value: http://service-gateway:8080/.well-known/jwks.json
-            - name: INTERNAL_JWT_ISSUER
-              value: service-gateway
-            - name: INTERNAL_JWT_AUDIENCE
-              value: tolo-graph-authoring
             - name: TENANT_MANAGEMENT_URL
               value: http://service-gateway:8090
           ports:
