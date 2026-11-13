@@ -50,6 +50,10 @@ spec:
               value: http://service-gateway:8080/.well-known/jwks.json
             - name: TENANT_MANAGEMENT_URL
               value: http://service-gateway:8090
+            - name: TOLO_GRAPH_MAX_NODES
+              value: "60"
+            - name: TOLO_GRAPH_MAX_EDGES
+              value: "150"
           ports:
             - name: http
               containerPort: 8080
