@@ -34,3 +34,29 @@ images:
   - name: redis
     newTag: 8-alpine
     digest: sha256:3811787313eba226a2ef38658c6ccb91cd5e110edc89c37767de373120a0e5a0
+replacements:
+  - source:
+      kind: StatefulSet
+      name: tenant-management-db
+      fieldPath: spec.template.spec.containers.[name=postgres].image
+    targets:
+      - select:
+          kind: StatefulSet
+          name: tolo-idp-db
+        fieldPaths:
+          - spec.template.spec.containers.[name=postgres].image
+      - select:
+          kind: StatefulSet
+          name: web-auth-db
+        fieldPaths:
+          - spec.template.spec.containers.[name=postgres].image
+  - source:
+      kind: Deployment
+      name: web
+      fieldPath: spec.template.spec.containers.[name=web].image
+    targets:
+      - select:
+          kind: StatefulSet
+          name: web-auth-db
+        fieldPaths:
+          - spec.template.spec.initContainers.[name=schema].image
