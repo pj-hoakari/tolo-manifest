@@ -65,6 +65,7 @@ configMapGenerator:
   - name: seed
     files:
       - seed/seed.mjs
+      - seed/token.mjs
       - seed/graph.json
       - seed/guide-map-layout.json
       - seed/qr-locations.json
