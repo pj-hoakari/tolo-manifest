@@ -1,2 +1,5 @@
 /overlays/local/secrets.env
 /overlays/local/signing-key.pem
+/overlays/local-idp/secrets.env
+/overlays/local-idp/jwk-private-key.pem
+/overlays/local-idp/seed-users.json

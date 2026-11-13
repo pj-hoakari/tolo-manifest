@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: any
+spec:
+  template:
+    spec:
+      hostAliases:
+        - ip: 127.0.0.1
+          hostnames:
+            - auth.tolo.localhost
+      containers:
+        - name: idp-loopback
+          image: alpine/socat
+          args: ["TCP-LISTEN:18080,bind=127.0.0.1,fork,reuseaddr", "TCP:tolo-idp:8080"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]

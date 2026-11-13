@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-gateway
+spec:
+  template:
+    spec:
+      containers:
+        - name: service-gateway
+          env:
+            - name: IDP_ISSUER
+              value: null
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-idp-public
+                  key: issuer

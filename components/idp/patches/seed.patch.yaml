@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: seed
+spec:
+  template:
+    spec:
+      containers:
+        - name: seed
+          env:
+            - name: FAKEIDP_URL
+              $patch: delete
+            - name: TOLO_TOKEN_TTL_SECONDS
+              $patch: delete
+            - name: IDP_URL
+              value: http://tolo-idp:8080
+            - name: WEB_ORIGIN
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-idp-public
+                  key: web-origin
+            - name: IDP_CLIENT_ID
+              value: console-ui
+            - name: IDP_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tolo-idp
+                  key: console-ui-client-secret
+            - name: IDP_REDIRECT_URI
+              value: $(WEB_ORIGIN)/api/auth/callback/tolo-idp
+            - name: IDP_AUDIENCE
+              value: backend-api
+            - name: IDP_RESOURCE_HOST
+              value: api.example.com
+            - name: IDP_SEED_USERS_FILE
+              value: /etc/tolo/idp-seed/users.json
+          volumeMounts:
+            - name: idp-seed
+              mountPath: /etc/tolo/idp-seed
+              readOnly: true
+      volumes:
+        - name: idp-seed
+          secret:
+            secretName: tolo-idp
+            defaultMode: 0444
+            items:
+              - key: seed-users.json
+                path: users.json

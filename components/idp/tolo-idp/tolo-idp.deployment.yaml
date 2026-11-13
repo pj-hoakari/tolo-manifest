@@ -1,0 +1,134 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tolo-idp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tolo-idp
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tolo-idp
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        fsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: tolo-idp
+          image: ghcr.io/pj-hoakari/tolo-idp
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: production
+            - name: TZ
+              value: UTC
+            - name: SPRING_CONFIG_ADDITIONAL_LOCATION
+              value: file:/etc/tolo-idp/config/clients.yaml
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://tolo-idp-db:5432/tolo_idp
+            - name: SPRING_DATASOURCE_USERNAME
+              value: tolo_idp
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo-idp
+                  key: idp-db-password
+            - name: TOLO_IDP_ISSUER
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-idp-public
+                  key: issuer
+            - name: TOLO_WEB_ORIGIN
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-idp-public
+                  key: web-origin
+            - name: TOLO_IDP_LOGIN_PAGE_URL
+              value: $(TOLO_WEB_ORIGIN)/login
+            - name: TOLO_IDP_LOGIN_ERROR_PAGE_URL
+              value: $(TOLO_WEB_ORIGIN)/auth/error
+            - name: TOLO_IDP_RATE_LIMIT_REDIS_URI
+              value: redis://tolo-idp-redis:6379
+            - name: TOLO_IDP_RELATION_BASE_URL
+              value: http://tenant-management:8080
+            - name: TOLO_IDP_JWK_PRIVATE_KEY_LOCATION
+              value: file:/etc/tolo-idp/jwk/private.pem
+            - name: TOLO_IDP_SEED_ENABLED
+              value: "true"
+            - name: TOLO_IDP_SEED_USERS_FILE
+              value: file:/etc/tolo-idp/seed/users.json
+            - name: TOLO_IDP_CONSOLE_UI_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tolo-idp
+                  key: console-ui-client-secret
+            - name: TOLO_IDP_EDGE_PAGE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tolo-idp
+                  key: edge-page-client-secret
+            - name: TOLO_IDP_OBSERVATION_CONNECTION_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tolo-idp
+                  key: observation-connection-client-secret
+            - name: TOLO_IDP_GATEWAY_INTROSPECTION_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: introspection-client-secret
+          ports:
+            - name: http
+              containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            failureThreshold: 60
+            periodSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: config
+              mountPath: /etc/tolo-idp/config
+              readOnly: true
+            - name: jwk
+              mountPath: /etc/tolo-idp/jwk
+              readOnly: true
+            - name: seed
+              mountPath: /etc/tolo-idp/seed
+              readOnly: true
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: config
+          configMap:
+            name: tolo-idp-config
+        - name: jwk
+          secret:
+            secretName: tolo-idp
+            defaultMode: 0440
+            items:
+              - key: jwk-private-key.pem
+                path: private.pem
+        - name: seed
+          secret:
+            secretName: tolo-idp
+            defaultMode: 0440
+            items:
+              - key: seed-users.json
+                path: users.json
+        - name: tmp
+          emptyDir: {}

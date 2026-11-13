@@ -4,6 +4,7 @@ version: "3"
 
 vars:
     LOCAL_DIR: overlays/local
+    LOCAL_IDP_DIR: overlays/local-idp
     TOLO_DIR: '{{.TOLO_DIR | default "../tolo"}}'
 
 tasks:
@@ -17,6 +18,7 @@ tasks:
         cmds:
             - kustomize build base >/dev/null
             - kustomize build {{.LOCAL_DIR}} >/dev/null
+            - kustomize build {{.LOCAL_IDP_DIR}} >/dev/null
 
     local:secrets:
         desc: Generate the Secret inputs of the local overlay once.
@@ -35,9 +37,10 @@ tasks:
             - chmod 600 {{.LOCAL_DIR}}/signing-key.pem {{.LOCAL_DIR}}/secrets.env
 
     local:images:
-        desc: Pull the published images of the base, and build the Firebase emulator image of the local overlay with the tolo repository's Compose (TOLO_DIR).
+        desc: Pull the published images of the base and the IdP component, and build the Firebase emulator image of the local overlay with the tolo repository's Compose (TOLO_DIR).
+        deps: [local-idp:secrets]
         cmds:
-            - kustomize build base | yq -N '.. | select(has("image")) | .image' | sort -u | xargs -n 1 docker pull -q
+            - kustomize build {{.LOCAL_IDP_DIR}} | yq -N '.. | select(has("image")) | .image' | grep -v ':local$' | sort -u | xargs -n 1 docker pull -q
             - task: local:firebase-emulator
 
     local:firebase-emulator:
@@ -51,11 +54,12 @@ tasks:
             - docker tag "$(docker compose config --images firebase-emulator)" ghcr.io/pj-hoakari/tolo-firebase-emulator:local
 
     local:check-images:
-        desc: Fail when an image of the base is missing from the local Docker.
+        desc: Fail when an image of the base or the IdP component is missing from the local Docker.
+        deps: [local-idp:secrets]
         cmds:
             - |
               missing=0
-              for image in $(kustomize build base | yq -N '.. | select(has("image")) | .image' | sort -u); do
+              for image in $(kustomize build {{.LOCAL_IDP_DIR}} | yq -N '.. | select(has("image")) | .image' | grep -v ':local$' | sort -u); do
                 docker image inspect "$image" >/dev/null 2>&1 || { echo "missing: $image" >&2; missing=1; }
               done
               exit $missing
@@ -73,3 +77,50 @@ tasks:
         desc: Delete everything the local overlay created, the namespace and the database volumes included.
         cmds:
             - kubectl delete -k {{.LOCAL_DIR}} --ignore-not-found
+
+    local-idp:secrets:
+        desc: Generate the Secret inputs of the local IdP overlay once.
+        deps: [local:secrets]
+        status:
+            - test -f {{.LOCAL_IDP_DIR}}/secrets.env
+            - test -f {{.LOCAL_IDP_DIR}}/jwk-private-key.pem
+            - test -f {{.LOCAL_IDP_DIR}}/seed-users.json
+        vars:
+            TENANT_ID:
+                sh: yq '.configMapGenerator[] | select(.name == "tolo-fixture") | .literals[] | select(test("^tenant-id=")) | sub("^tenant-id="; "")' base/kustomization.yaml
+            OWNER_SUB:
+                sh: yq '.configMapGenerator[] | select(.name == "tolo-fixture") | .literals[] | select(test("^owner-sub=")) | sub("^owner-sub="; "")' components/idp/kustomization.yaml
+        cmds:
+            - openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out {{.LOCAL_IDP_DIR}}/jwk-private-key.pem
+            - |
+              {
+                for key in idp-db-password web-auth-db-password console-ui-client-secret edge-page-client-secret observation-connection-client-secret web-auth-secret; do
+                  echo "${key}=$(openssl rand -hex 32)"
+                done
+              } > {{.LOCAL_IDP_DIR}}/secrets.env
+            - |
+              jq -n --arg id '{{.OWNER_SUB}}' --arg tenant '{{.TENANT_ID}}' --arg password "$(openssl rand -hex 16)" \
+                '{users: [{id: $id, tenantId: $tenant, username: "owner", password: $password}]}' > {{.LOCAL_IDP_DIR}}/seed-users.json
+            - chmod 600 {{.LOCAL_IDP_DIR}}/secrets.env {{.LOCAL_IDP_DIR}}/jwk-private-key.pem {{.LOCAL_IDP_DIR}}/seed-users.json
+
+    local-idp:up:
+        desc: Apply the local IdP overlay to the current kubectl context.
+        deps: [local-idp:secrets]
+        cmds:
+            - kubectl -n tolo delete job seed --ignore-not-found
+            - kubectl apply -k {{.LOCAL_IDP_DIR}}
+            - kubectl -n tolo rollout status deploy --timeout=10m
+            - kubectl -n tolo rollout status statefulset --timeout=10m
+
+    local-idp:forward:
+        desc: Forward the IdP to auth.tolo.localhost:18080 and web to tolo.localhost on port 80 of every interface.
+        cmds:
+            - |
+              kubectl -n tolo port-forward svc/tolo-idp 18080:8080 &
+              trap 'kill $!' EXIT
+              kubectl -n tolo port-forward --address 0.0.0.0 svc/web 80:3000
+
+    local-idp:down:
+        desc: Delete everything the local IdP overlay created, the namespace and the database volumes included.
+        cmds:
+            - kubectl delete -k {{.LOCAL_IDP_DIR}} --ignore-not-found
