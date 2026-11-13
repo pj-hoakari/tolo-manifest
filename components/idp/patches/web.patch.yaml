@@ -39,12 +39,12 @@ spec:
             - name: AUTH_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: web-auth-secret
             - name: WEB_AUTH_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: web-auth-db-password
             - name: AUTH_DATABASE_URL
               value: postgres://tolo_web_auth:$(WEB_AUTH_DB_PASSWORD)@web-auth-db:5432/tolo_web_auth
@@ -53,14 +53,14 @@ spec:
             - name: AUTH_IDP_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: console-ui-client-secret
             - name: AUTH_IDP_CONNECTION_CLIENT_ID
               value: observation-connection
             - name: AUTH_IDP_CONNECTION_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: observation-connection-client-secret
             - name: AUTH_CONNECTION_REDIRECT_URI
               value: $(WEB_ORIGIN)/api/auth/connection/callback
@@ -69,7 +69,7 @@ spec:
             - name: AUTH_IDP_MACHINE_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: edge-page-client-secret
             - name: AUTH_IDP_MACHINE_REDIRECT_URI
               value: $(WEB_ORIGIN)/api/auth/machine/callback

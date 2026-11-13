@@ -17,7 +17,8 @@ configMapGenerator:
       - issuer=http://auth.tolo.localhost:18080
       - web-origin=http://tolo.localhost
 secretGenerator:
-  - name: tolo-idp
+  - name: tolo
+    behavior: merge
     envs:
       - secrets.env
     files:
