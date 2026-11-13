@@ -99,8 +99,8 @@ tasks:
                 done
               } > {{.LOCAL_IDP_DIR}}/secrets.env
             - |
-              jq -n --arg id '{{.OWNER_SUB}}' --arg tenant '{{.TENANT_ID}}' --arg password "$(openssl rand -hex 16)" \
-                '{users: [{id: $id, tenantId: $tenant, username: "owner", password: $password}]}' > {{.LOCAL_IDP_DIR}}/seed-users.json
+              ID='{{.OWNER_SUB}}' TENANT='{{.TENANT_ID}}' PASSWORD="$(openssl rand -hex 16)" \
+                yq -n -o json '.users = [{"id": strenv(ID), "tenantId": strenv(TENANT), "username": "owner", "password": strenv(PASSWORD)}]' > {{.LOCAL_IDP_DIR}}/seed-users.json
             - chmod 600 {{.LOCAL_IDP_DIR}}/secrets.env {{.LOCAL_IDP_DIR}}/jwk-private-key.pem {{.LOCAL_IDP_DIR}}/seed-users.json
 
     local-idp:up:
