@@ -24,7 +24,7 @@ spec:
             - name: IDP_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: console-ui-client-secret
             - name: IDP_REDIRECT_URI
               value: $(WEB_ORIGIN)/api/auth/callback/tolo-idp
@@ -41,7 +41,7 @@ spec:
       volumes:
         - name: idp-seed
           secret:
-            secretName: tolo-idp
+            secretName: tolo
             defaultMode: 0444
             items:
               - key: seed-users.json

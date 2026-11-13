@@ -43,7 +43,7 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: web-auth-db-password
           ports:
             - name: postgres

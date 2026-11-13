@@ -24,7 +24,7 @@ overlay は次のキーを持つ `tolo` を用意する
 | キー | 使うサービス |
 | --- | --- |
 | `signing-key.pem` | service-gateway（内部 JWT の署名鍵。P-256 の EC 秘密鍵） |
-| `introspection-client-secret` | service-gateway、fakeidp |
+| `introspection-client-secret` | service-gateway、fakeidp。`components/idp` を使うときは fakeidp の代わりに tolo-idp（client `gateway-introspection` の secret） |
 | `tenant-management-db-password` | tenant-management、tenant-management-db |
 | `graph-authoring-db-password` | graph-authoring、graph-authoring-db |
 | `observation-db-password` | observation、observation-db |
@@ -84,7 +84,7 @@ ConfigMap `tolo-idp-public`
 | `issuer` | IdP の issuer。ブラウザと service-gateway、web の Pod が同じ URL で届く必要がある |
 | `web-origin` | web の `ROOT_DOMAIN` のオリジン。IdP のログイン画面、client の redirect URI、`/api/login` で許す Origin がここから決まる |
 
-Secret `tolo-idp`
+Secret `tolo` には、base のキーに加えて次のキーを入れる
 
 | キー | 使うもの |
 | --- | --- |
@@ -97,7 +97,6 @@ Secret `tolo-idp`
 | `edge-page-client-secret` | tolo-idp、web |
 | `observation-connection-client-secret` | tolo-idp、web |
 
-tolo-idp の client `gateway-introspection` の secret には、Secret `tolo` の `introspection-client-secret` を使う  
 client の定義は `components/idp/clients.yaml` にあり、redirect URI は `web-origin` から作る  
 tolo-idp は seed のユーザーが DB の内容と食い違うと起動しないので、パスワードを変えたら tolo-idp-db のボリュームも作り直す
 

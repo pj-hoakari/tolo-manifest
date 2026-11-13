@@ -36,7 +36,7 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: idp-db-password
             - name: TOLO_IDP_ISSUER
               valueFrom:
@@ -65,17 +65,17 @@ spec:
             - name: TOLO_IDP_CONSOLE_UI_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: console-ui-client-secret
             - name: TOLO_IDP_EDGE_PAGE_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: edge-page-client-secret
             - name: TOLO_IDP_OBSERVATION_CONNECTION_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tolo-idp
+                  name: tolo
                   key: observation-connection-client-secret
             - name: TOLO_IDP_GATEWAY_INTROSPECTION_CLIENT_SECRET
               valueFrom:
@@ -118,14 +118,14 @@ spec:
             name: tolo-idp-config
         - name: jwk
           secret:
-            secretName: tolo-idp
+            secretName: tolo
             defaultMode: 0440
             items:
               - key: jwk-private-key.pem
                 path: private.pem
         - name: seed
           secret:
-            secretName: tolo-idp
+            secretName: tolo
             defaultMode: 0440
             items:
               - key: seed-users.json
