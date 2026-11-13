@@ -81,9 +81,9 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
     newTag: sha-b099464
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring
-    newTag: sha-3354316
+    newTag: sha-ed00a56
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
-    newTag: sha-3354316
+    newTag: sha-ed00a56
   - name: ghcr.io/pj-hoakari/tolo-observation
     newTag: sha-ce214e8
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
