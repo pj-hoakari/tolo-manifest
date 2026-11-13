@@ -70,7 +70,7 @@ Postgres と NATS の PVC は `storageClassName` を指定しないので、ク�
 
 ## 実物の IdP に切り替える
 
-`components/idp` は fakeidp の Deployment、Service と web の起動スクリプト `web-start` を消し、tolo-idp、その PostgreSQL と Redis、web の認証用の PostgreSQL（`web-auth-db`）を足す  
+`components/idp` は fakeidp の Deployment と Service、web の起動スクリプト `web-start` を消し、tolo-idp、その PostgreSQL と Redis、web の認証用の PostgreSQL（`web-auth-db`）を足す  
 service-gateway と edge-bridge は tolo-idp のトークンを検証し、web は `AUTH_MOCKING=disabled` でログインに tolo-idp を使う  
 seed の `token.mjs` を差し替え、seed のユーザーでログインしてから Token Exchange で `event_access` を取る  
 固定のテナントのオーナー（`tolo-fixture` の `owner-sub`）は、seed のユーザーの ID（UUID）に置き換える
@@ -101,7 +101,12 @@ tolo-idp の client `gateway-introspection` の secret には、Secret `tolo` �
 client の定義は `components/idp/clients.yaml` にあり、redirect URI は `web-origin` から作る  
 tolo-idp は seed のユーザーが DB の内容と食い違うと起動しないので、パスワードを変えたら tolo-idp-db のボリュームも作り直す
 
-NetworkPolicy で通信を絞る overlay は、service-gateway、edge-bridge、web、seed から tolo-idp の 8080 への通信と、tolo-idp から tenant-management の 8080 への通信を許す
+NetworkPolicy で通信を絞る overlay は、次の通信を許す
+
+- service-gateway、edge-bridge、web、seed から tolo-idp の 8080
+- tolo-idp から tenant-management の 8080、tolo-idp-db の 5432、tolo-idp-redis の 6379
+- web から web-auth-db の 5432
+- issuer がクラスタの外の URL なら、ingress から tolo-idp の 8080 と、service-gateway と web からその URL
 
 ## イメージ
 
@@ -139,7 +144,7 @@ task local-idp:forward
 ```
 
 `task local-idp:up` は `overlays/local` の Secret の材料に加えて、`overlays/local-idp/` に IdP の Secret の材料を一度だけ生成する  
-`task local-idp:forward` は IdP を `http://auth.tolo.localhost:18080`、web を `http://tolo.localhost` に転送する。macOS では管理者権限なしに 80 番を使えるのがすべてのインターフェースだけなので、web は LAN からも届く  
+`task local-idp:forward` は IdP を `http://auth.tolo.localhost:18080`、web を `http://tolo.localhost` に転送する。macOS では、管理者権限なしに 80 番で待ち受けられるのは全インターフェースに向けたときだけなので、web は LAN からも届く  
 ブラウザで `http://test.tolo.localhost` を開き、`overlays/local-idp/seed-users.json` のユーザー名とパスワードでログインする
 
 issuer はブラウザと Pod で同じ URL にする必要がある。overlay は service-gateway と web の Pod で `auth.tolo.localhost` を 127.0.0.1 に向け、同じ Pod の socat が 127.0.0.1:18080 を tolo-idp へ中継する  
