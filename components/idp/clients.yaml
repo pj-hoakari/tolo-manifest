@@ -1,0 +1,155 @@
+spring:
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          console-ui:
+            registration:
+              client-id: console-ui
+              client-secret: "${TOLO_IDP_CONSOLE_UI_CLIENT_SECRET}"
+              client-name: tolo-web
+              client-authentication-methods:
+                - client_secret_basic
+                - client_secret_post
+              authorization-grant-types:
+                - authorization_code
+                - refresh_token
+                - urn:ietf:params:oauth:grant-type:token-exchange
+              redirect-uris:
+                - "${TOLO_WEB_ORIGIN}/api/auth/callback/tolo-idp"
+              post-logout-redirect-uris:
+                - "${TOLO_WEB_ORIGIN}/auth/logged-out"
+              scopes:
+                - openid
+                - profile
+                - tenant.read
+                - tenant.write
+                - tenant.join
+                - events.read
+                - events.manage
+                - events.operate
+                - events.report
+            require-proof-key: true
+            require-authorization-consent: false
+            token:
+              reuse-refresh-tokens: false
+              refresh-token-time-to-live: 1h
+              authorization-code-time-to-live: 5m
+              access-token-time-to-live: 15m
+              access-token-format: self-contained
+          edge-page:
+            registration:
+              client-id: edge-page
+              client-secret: "${TOLO_IDP_EDGE_PAGE_CLIENT_SECRET}"
+              client-name: Observation page BFF client
+              client-authentication-methods:
+                - client_secret_basic
+                - client_secret_post
+              authorization-grant-types:
+                - authorization_code
+                - refresh_token
+                - urn:ietf:params:oauth:grant-type:token-exchange
+              redirect-uris:
+                - "${TOLO_WEB_ORIGIN}/api/auth/machine/callback"
+              post-logout-redirect-uris:
+                - "${TOLO_WEB_ORIGIN}/auth/logged-out"
+              scopes:
+                - openid
+                - profile
+                - events.report
+            require-proof-key: true
+            require-authorization-consent: false
+            token:
+              reuse-refresh-tokens: false
+              refresh-token-time-to-live: 24h
+              authorization-code-time-to-live: 5m
+              access-token-time-to-live: 15m
+              access-token-format: self-contained
+          observation-connection:
+            registration:
+              client-id: observation-connection
+              client-secret: "${TOLO_IDP_OBSERVATION_CONNECTION_CLIENT_SECRET}"
+              client-name: Observation connection client
+              client-authentication-methods:
+                - client_secret_basic
+                - client_secret_post
+              authorization-grant-types:
+                - authorization_code
+                - refresh_token
+                - urn:ietf:params:oauth:grant-type:token-exchange
+              redirect-uris:
+                - "${TOLO_WEB_ORIGIN}/api/auth/connection/callback"
+              scopes:
+                - openid
+                - profile
+                - events.read
+            require-proof-key: true
+            require-authorization-consent: false
+            token:
+              reuse-refresh-tokens: false
+              refresh-token-time-to-live: 24h
+              authorization-code-time-to-live: 5m
+              access-token-time-to-live: 15m
+              access-token-format: self-contained
+          esp-camera:
+            registration:
+              client-id: esp-camera
+              client-name: ESP camera
+              client-authentication-methods:
+                - none
+              authorization-grant-types:
+                - urn:ietf:params:oauth:grant-type:device_code
+                - refresh_token
+              scopes:
+                - events.stream
+            require-proof-key: false
+            require-authorization-consent: false
+            token:
+              reuse-refresh-tokens: false
+              refresh-token-time-to-live: 24h
+              device-code-time-to-live: 10m
+              access-token-time-to-live: 10m
+              access-token-format: self-contained
+          gateway-introspection:
+            registration:
+              client-id: gateway-introspection
+              client-secret: "${TOLO_IDP_GATEWAY_INTROSPECTION_CLIENT_SECRET}"
+              client-name: Service gateway
+              client-authentication-methods:
+                - client_secret_basic
+                - client_secret_post
+              authorization-grant-types:
+                - refresh_token
+
+tolo-idp:
+  clients:
+    console-ui:
+      allowed-audiences:
+        - backend-api
+      allowed-token-exchange-transitions:
+        - tenant_access:event_access
+      tenant-access-ttl: 15m
+      event-access-ttl: 10m
+    observation-connection:
+      allowed-audiences:
+        - backend-api
+      allowed-token-exchange-transitions:
+        - tenant_access:event_access
+      tenant-access-ttl: 15m
+      event-access-ttl: 10m
+    edge-page:
+      allowed-audiences:
+        - backend-api
+      allowed-token-exchange-transitions:
+        - tenant_access:event_access
+      tenant-access-ttl: 15m
+      event-access-ttl: 10m
+    esp-camera:
+      allowed-audiences:
+        - backend-api
+      tenant-access-ttl: 15m
+      event-access-ttl: 10m
+    gateway-introspection:
+      allowed-audiences:
+        - backend-api
+      token-introspection-allowed: true

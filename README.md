@@ -10,6 +10,8 @@ Firebase のエミュレータは base に含めない。どの Firebase プロ�
 - `base/`: サービスごとのディレクトリに、`<name>.<kind>.yaml` の形で 1 ファイル 1 リソースを置く
 - `base/kustomization.yaml`: イメージのタグを `images` で固定する
 - `overlays/local/`: ローカルのクラスタで base を確かめるための overlay
+- `components/idp/`: fakeidp の代わりに実物の IdP（tolo-idp）を production プロファイルで動かす Kustomize の component
+- `overlays/local-idp/`: `overlays/local` に `components/idp` を重ねた overlay
 
 compose のサービス名 `server` は Service 名 `service-gateway` に置き換えている  
 それ以外のサービスは compose と同じ名前で互いを参照する
@@ -66,6 +68,46 @@ NetworkPolicy で通信を絞る overlay は、operation、observation、push-re
 
 Postgres と NATS の PVC は `storageClassName` を指定しないので、クラスタの既定の StorageClass が使われる
 
+## 実物の IdP に切り替える
+
+`components/idp` は fakeidp の Deployment と Service、web の起動スクリプト `web-start` を消し、tolo-idp、その PostgreSQL と Redis、web の認証用の PostgreSQL（`web-auth-db`）を足す  
+service-gateway と edge-bridge は tolo-idp のトークンを検証し、web は `AUTH_MOCKING=disabled` でログインに tolo-idp を使う  
+seed の `token.mjs` を差し替え、seed のユーザーでログインしてから Token Exchange で `event_access` を取る  
+固定のテナントのオーナー（`tolo-fixture` の `owner-sub`）は、seed のユーザーの ID（UUID）に置き換える
+
+component を使う overlay は、次のものを用意する
+
+ConfigMap `tolo-idp-public`
+
+| キー | 内容 |
+| --- | --- |
+| `issuer` | IdP の issuer。ブラウザと service-gateway、web の Pod が同じ URL で届く必要がある |
+| `web-origin` | web の `ROOT_DOMAIN` のオリジン。IdP のログイン画面、client の redirect URI、`/api/login` で許す Origin がここから決まる |
+
+Secret `tolo-idp`
+
+| キー | 使うもの |
+| --- | --- |
+| `jwk-private-key.pem` | tolo-idp（トークンの署名鍵。PKCS#8 の RSA 秘密鍵） |
+| `seed-users.json` | tolo-idp、seed（seed のユーザー。`id` は `owner-sub`、`tenantId` は `tenant-id` と同じ値にする） |
+| `idp-db-password` | tolo-idp、tolo-idp-db |
+| `web-auth-db-password` | web、web-auth-db |
+| `web-auth-secret` | web（better-auth の `AUTH_SECRET`） |
+| `console-ui-client-secret` | tolo-idp、web、seed |
+| `edge-page-client-secret` | tolo-idp、web |
+| `observation-connection-client-secret` | tolo-idp、web |
+
+tolo-idp の client `gateway-introspection` の secret には、Secret `tolo` の `introspection-client-secret` を使う  
+client の定義は `components/idp/clients.yaml` にあり、redirect URI は `web-origin` から作る  
+tolo-idp は seed のユーザーが DB の内容と食い違うと起動しないので、パスワードを変えたら tolo-idp-db のボリュームも作り直す
+
+NetworkPolicy で通信を絞る overlay は、次の通信を許す
+
+- service-gateway、edge-bridge、web、seed から tolo-idp の 8080
+- tolo-idp から tenant-management の 8080、tolo-idp-db の 5432、tolo-idp-redis の 6379
+- web から web-auth-db の 5432
+- issuer がクラスタの外の URL なら、ingress から tolo-idp の 8080 と、service-gateway と web からその URL
+
 ## イメージ
 
 イメージ名は `ghcr.io/pj-hoakari/<compose のイメージ名>:sha-<コミットの先頭 7 桁>` とする  
@@ -92,3 +134,20 @@ kubectl -n tolo port-forward svc/service-gateway 8080:8080 &
 kubectl -n tolo port-forward svc/fakeidp 8082:8080 &
 <tolo の checkout>/scripts/tenant-management-onboarding.sh
 ```
+
+### 実物の IdP で確かめる
+
+```bash
+task local:images TOLO_DIR=<tolo の checkout>
+task local-idp:up
+task local-idp:forward
+```
+
+`task local-idp:up` は `overlays/local` の Secret の材料に加えて、`overlays/local-idp/` に IdP の Secret の材料を一度だけ生成する  
+`task local-idp:forward` は IdP を `http://auth.tolo.localhost:18080`、web を `http://tolo.localhost` に転送する。macOS では、管理者権限なしに 80 番で待ち受けられるのは全インターフェースに向けたときだけなので、web は LAN からも届く  
+ブラウザで `http://test.tolo.localhost` を開き、`overlays/local-idp/seed-users.json` のユーザー名とパスワードでログインする
+
+issuer はブラウザと Pod で同じ URL にする必要がある。overlay は service-gateway と web の Pod で `auth.tolo.localhost` を 127.0.0.1 に向け、同じ Pod の socat が 127.0.0.1:18080 を tolo-idp へ中継する  
+IdP の cookie は `__Host-` 付きで `Secure` なので、HTTP で試すときは `*.localhost` の名前を使う
+
+`overlays/local` と `overlays/local-idp` は同じ namespace を使うので、切り替えるときは `task local:down` か `task local-idp:down` で先に消す

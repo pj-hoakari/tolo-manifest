@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-bridge
+spec:
+  template:
+    spec:
+      containers:
+        - name: edge-bridge
+          env:
+            - name: IDP_ISSUER
+              value: null
+              valueFrom:
+                configMapKeyRef:
+                  name: tolo-idp-public
+                  key: issuer
+            - name: IDP_JWKS_URL
+              value: http://tolo-idp:8080/oauth2/jwks

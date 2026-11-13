@@ -1,38 +1,16 @@
 import { readFile } from "node:fs/promises";
+import { eventAccessToken } from "./token.mjs";
 
 const gateway = process.env.GATEWAY_URL;
-const fakeidp = process.env.FAKEIDP_URL;
 const tenantId = process.env.TOLO_TENANT_ID;
 const eventId = process.env.TOLO_EVENT_ID;
-const ownerSub = process.env.TOLO_OWNER_SUB;
-const ttlSeconds = Number(process.env.TOLO_TOKEN_TTL_SECONDS);
 
 const GRAPH = "tolo.graph.v1.GraphAuthoringService";
 const GUEST_SETTINGS = "tolo.guest.v1.GuestSettingsService";
 const EDGE_DEVICES = "tolo.observation.v1.EdgeDeviceService";
 const STAFF_MESSAGES = "tolo.operation.v1.StaffCommunicationService";
 
-async function issue(request) {
-  const response = await fetch(`${fakeidp}/token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...request, ttl_seconds: ttlSeconds }),
-  });
-  const body = await response.json();
-  if (!response.ok || !body.access_token) {
-    throw new Error(`token request failed: ${response.status} ${JSON.stringify(body)}`);
-  }
-  return body.access_token;
-}
-
-const token = await issue({
-  token_use: "event_access",
-  sub: ownerSub,
-  client_id: "console-ui",
-  tenant_id: tenantId,
-  event_id: eventId,
-  scope: "events.read events.manage events.operate",
-});
+const token = await eventAccessToken({ tenantId, eventId });
 
 async function call(service, method, request) {
   const response = await fetch(`${gateway}/${service}/${method}`, {

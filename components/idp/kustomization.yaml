@@ -1,0 +1,36 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+resources:
+  - tolo-idp/tolo-idp.deployment.yaml
+  - tolo-idp/tolo-idp.service.yaml
+  - tolo-idp/tolo-idp-db.statefulset.yaml
+  - tolo-idp/tolo-idp-db.service.yaml
+  - tolo-idp/tolo-idp-redis.deployment.yaml
+  - tolo-idp/tolo-idp-redis.service.yaml
+  - web-auth-db/web-auth-db.statefulset.yaml
+  - web-auth-db/web-auth-db.service.yaml
+patches:
+  - path: patches/fakeidp.delete.yaml
+  - path: patches/service-gateway.patch.yaml
+  - path: patches/edge-bridge.patch.yaml
+  - path: patches/web.patch.yaml
+  - path: patches/seed.patch.yaml
+configMapGenerator:
+  - name: tolo-idp-config
+    files:
+      - clients.yaml
+  - name: tolo-fixture
+    behavior: merge
+    literals:
+      - owner-sub=e55e987a-c0db-4d9a-926f-3d4d2aef1da1
+  - name: seed
+    behavior: merge
+    files:
+      - token.mjs
+images:
+  - name: ghcr.io/pj-hoakari/tolo-idp
+    newTag: 0.5.0
+    digest: sha256:f54aa5700a03cafb29ff02f80d68ecf9f2eff5fbebe868b9ca59f79b28727b23
+  - name: redis
+    newTag: 8-alpine
+    digest: sha256:3811787313eba226a2ef38658c6ccb91cd5e110edc89c37767de373120a0e5a0
