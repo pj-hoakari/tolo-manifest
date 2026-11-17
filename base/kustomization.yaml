@@ -74,33 +74,33 @@ configMapGenerator:
       - seed/guest-messages.json
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-91f4f63
+    newTag: sha-de4a1fe
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
     newTag: sha-91f4f63
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
-    newTag: sha-b099464
+    newTag: sha-29dd6b1
   - name: ghcr.io/pj-hoakari/tolo-tenant-management-migrate
-    newTag: sha-b099464
+    newTag: sha-29dd6b1
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring
-    newTag: sha-ed00a56
+    newTag: sha-b05415f
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
-    newTag: sha-ed00a56
+    newTag: sha-b05415f
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-ce214e8
+    newTag: sha-b3a9417
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-ce214e8
+    newTag: sha-b3a9417
   - name: ghcr.io/pj-hoakari/tolo-operation
-    newTag: sha-d54522c
+    newTag: sha-c0c52de
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
-    newTag: sha-d54522c
+    newTag: sha-c0c52de
   - name: ghcr.io/pj-hoakari/tolo-guest
-    newTag: sha-15aacd7
+    newTag: sha-4c58170
   - name: ghcr.io/pj-hoakari/tolo-guest-migrate
-    newTag: sha-15aacd7
+    newTag: sha-4c58170
   - name: ghcr.io/pj-hoakari/tolo-realtime
-    newTag: sha-935f064
+    newTag: sha-823d6a3
   - name: ghcr.io/pj-hoakari/tolo-realtime-migrate
-    newTag: sha-935f064
+    newTag: sha-823d6a3
   - name: ghcr.io/pj-hoakari/jetstream-http-push
     newTag: sha-ef072ef
   - name: ghcr.io/pj-hoakari/tolo-flow-control
@@ -108,7 +108,7 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-88039df
   - name: ghcr.io/pj-hoakari/tolo-web
-    newTag: sha-381d1bc
+    newTag: sha-0cc9f7f
   - name: nats
     newTag: 2-alpine
     digest: sha256:7ae34c25dfd6fe2e01c6483eabef20d796690fdcac6c4d94ca780a6cf9877fde
