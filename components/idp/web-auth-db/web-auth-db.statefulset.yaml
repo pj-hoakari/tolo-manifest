@@ -20,18 +20,6 @@ spec:
         fsGroup: 70
         seccompProfile:
           type: RuntimeDefault
-      initContainers:
-        - name: schema
-          image: ghcr.io/pj-hoakari/tolo-web
-          command: ["cp", "/app/db/auth.sql", "/schema/auth.sql"]
-          securityContext:
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            capabilities:
-              drop: ["ALL"]
-          volumeMounts:
-            - name: schema
-              mountPath: /schema
       containers:
         - name: postgres
           image: postgres
@@ -63,12 +51,7 @@ spec:
               mountPath: /var/run/postgresql
             - name: tmp
               mountPath: /tmp
-            - name: schema
-              mountPath: /docker-entrypoint-initdb.d
-              readOnly: true
       volumes:
-        - name: schema
-          emptyDir: {}
         - name: run
           emptyDir: {}
         - name: tmp
