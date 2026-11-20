@@ -34,6 +34,9 @@ images:
   - name: redis
     newTag: 8-alpine
     digest: sha256:3811787313eba226a2ef38658c6ccb91cd5e110edc89c37767de373120a0e5a0
+  - name: migrate/migrate
+    newTag: v4.20.1
+    digest: sha256:76cc2074cb6642631f34a898ced71e6aeaa6b1a4d78c4daa743275a22e0c5be7
 replacements:
   - source:
       kind: StatefulSet
@@ -56,7 +59,7 @@ replacements:
       fieldPath: spec.template.spec.containers.[name=web].image
     targets:
       - select:
-          kind: StatefulSet
-          name: web-auth-db
+          kind: Deployment
+          name: web
         fieldPaths:
-          - spec.template.spec.initContainers.[name=schema].image
+          - spec.template.spec.initContainers.[name=migrations].image

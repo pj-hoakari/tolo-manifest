@@ -5,6 +5,38 @@ metadata:
 spec:
   template:
     spec:
+      initContainers:
+        - name: migrations
+          image: ghcr.io/pj-hoakari/tolo-web
+          command: ["cp", "-R", "/app/db/migrations/.", "/migrations"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: migrations
+              mountPath: /migrations
+        - name: migrate
+          image: migrate/migrate
+          args: ["-path", "/migrations", "-database", "$(DATABASE_URL)", "up"]
+          env:
+            - name: WEB_AUTH_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tolo
+                  key: web-auth-db-password
+            - name: DATABASE_URL
+              value: postgres://tolo_web_auth:$(WEB_AUTH_DB_PASSWORD)@web-auth-db:5432/tolo_web_auth?sslmode=disable
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: migrations
+              mountPath: /migrations
+              readOnly: true
       containers:
         - name: web
           command: ["node", "server.js"]
@@ -76,3 +108,5 @@ spec:
       volumes:
         - name: start
           $patch: delete
+        - name: migrations
+          emptyDir: {}
