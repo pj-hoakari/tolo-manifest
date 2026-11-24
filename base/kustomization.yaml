@@ -108,7 +108,7 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-edge-bridge
     newTag: sha-fb5207c
   - name: ghcr.io/pj-hoakari/tolo-web
-    newTag: sha-d3ae52e
+    newTag: sha-bc652f7
   - name: nats
     newTag: 2-alpine
     digest: sha256:7ae34c25dfd6fe2e01c6483eabef20d796690fdcac6c4d94ca780a6cf9877fde
