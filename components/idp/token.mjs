@@ -11,7 +11,7 @@ const resourceHost = process.env.IDP_RESOURCE_HOST;
 const ownerSub = process.env.TOLO_OWNER_SUB;
 const usersFile = process.env.IDP_SEED_USERS_FILE;
 
-const scope = "events.read events.manage events.operate";
+const scope = "events.read events.manage events.operate events.report";
 const cookies = new Map();
 const b64url = (buffer) => buffer.toString("base64url");
 

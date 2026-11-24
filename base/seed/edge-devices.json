@@ -1,19 +1,19 @@
 [
   {
     "name": "入口カメラ",
-    "observationPointNames": [
+    "observationPoints": [
       "入口"
     ]
   },
   {
     "name": "ブース前カメラ",
-    "observationPointNames": [
+    "observationPoints": [
       "ブース前"
     ]
   },
   {
     "name": "ホールカメラ",
-    "observationPointNames": [
+    "observationPoints": [
       "ホール"
     ]
   }

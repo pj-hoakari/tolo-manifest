@@ -35,9 +35,12 @@ const getGraph = () =>
     throw error;
   });
 
-async function addMissing(fixtureName, existing, keyOf, add) {
+const listEdgeDevices = async () =>
+  (await call(EDGE_DEVICES, "ListEdgeDevices", { eventId, includeUnregistered: true })).devices ?? [];
+
+async function addMissing(items, existing, keyOf, add) {
   const present = new Set(existing.map(keyOf));
-  const missing = (await fixture(fixtureName)).filter((item) => !present.has(keyOf(item)));
+  const missing = items.filter((item) => !present.has(keyOf(item)));
   for (const item of missing) await add(item);
   return missing.length ? `created ${missing.length}` : "skipped";
 }
@@ -58,7 +61,7 @@ const steps = {
   },
   async "QR locations"() {
     const { qrLocations = [] } = await getGraph();
-    return addMissing("qr-locations.json", qrLocations, (q) => q.name, (qrLocation) =>
+    return addMissing(await fixture("qr-locations.json"), qrLocations, (q) => q.name, (qrLocation) =>
       call(GRAPH, "AddQrLocation", { eventId, qrLocation }),
     );
   },
@@ -70,12 +73,28 @@ const steps = {
     return "created";
   },
   async "edge devices"() {
-    const { devices = [] } = await call(EDGE_DEVICES, "ListEdgeDevices", {
-      eventId,
-      includeUnregistered: true,
+    return addMissing(
+      await fixture("edge-devices.json"),
+      await listEdgeDevices(),
+      (d) => d.name,
+      ({ observationPoints, ...device }) => call(EDGE_DEVICES, "RegisterEdgeDevice", { eventId, ...device }),
+    );
+  },
+  async "observation points"() {
+    const devices = new Map((await listEdgeDevices()).map((device) => [device.name, device]));
+    const wanted = (await fixture("edge-devices.json")).flatMap(({ name, observationPoints }) => {
+      const device = devices.get(name);
+      return device.unregistered ? [] : observationPoints.map((point) => ({ device, name: point }));
     });
-    return addMissing("edge-devices.json", devices, (d) => d.name, (device) =>
-      call(EDGE_DEVICES, "RegisterEdgeDevice", { eventId, ...device }),
+    const present = [...devices.values()].flatMap((device) =>
+      (device.observationPoints ?? []).map(({ name }) => ({ device, name })),
+    );
+    return addMissing(wanted, present, (p) => `${p.device.edgeDeviceId}/${p.name}`, ({ device, name }) =>
+      call(EDGE_DEVICES, "AddObservationPoint", { eventId, edgeDeviceId: device.edgeDeviceId, name }).catch(
+        (error) => {
+          if (error.code !== "already_exists") throw error;
+        },
+      ),
     );
   },
   async "guest messages"() {
@@ -85,7 +104,7 @@ const steps = {
       tenantId,
       audience,
     });
-    return addMissing("guest-messages.json", messages, (m) => m.body, (message) =>
+    return addMissing(await fixture("guest-messages.json"), messages, (m) => m.body, (message) =>
       call(STAFF_MESSAGES, "SendStaffMessage", { eventId, tenantId, audience, ...message }),
     );
   },
