@@ -74,7 +74,7 @@ configMapGenerator:
       - seed/guest-messages.json
 images:
   - name: ghcr.io/pj-hoakari/tolo-service-gateway
-    newTag: sha-d887bfa
+    newTag: sha-ec1217a
   - name: ghcr.io/pj-hoakari/tolo-fakeidp
     newTag: sha-91f4f63
   - name: ghcr.io/pj-hoakari/tolo-tenant-management
@@ -86,9 +86,9 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
     newTag: sha-ad60242
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-b9dc9b2
+    newTag: sha-d496ff8
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-b9dc9b2
+    newTag: sha-d496ff8
   - name: ghcr.io/pj-hoakari/tolo-operation
     newTag: sha-00c65c1
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
