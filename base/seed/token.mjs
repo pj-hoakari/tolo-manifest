@@ -12,7 +12,7 @@ export async function eventAccessToken({ tenantId, eventId }) {
       client_id: "console-ui",
       tenant_id: tenantId,
       event_id: eventId,
-      scope: "events.read events.manage events.operate",
+      scope: "events.read events.manage events.operate events.report",
       ttl_seconds: ttlSeconds,
     }),
   });
