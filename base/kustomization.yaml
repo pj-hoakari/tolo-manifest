@@ -86,9 +86,9 @@ images:
   - name: ghcr.io/pj-hoakari/tolo-graph-authoring-migrate
     newTag: sha-ad60242
   - name: ghcr.io/pj-hoakari/tolo-observation
-    newTag: sha-d496ff8
+    newTag: sha-c85bda1
   - name: ghcr.io/pj-hoakari/tolo-observation-migrate
-    newTag: sha-d496ff8
+    newTag: sha-c85bda1
   - name: ghcr.io/pj-hoakari/tolo-operation
     newTag: sha-00c65c1
   - name: ghcr.io/pj-hoakari/tolo-operation-migrate
